@@ -423,7 +423,8 @@ class BotV2Client:
             "Trade placed: asset=%s dir=%s amount=%s duration=%ss id=%s",
             asset, direction, amount, duration, trade_id,
         )
-        return {
+            return {
+            "success": True,
             "ok": True,
             "trade_id": str(trade_id) if trade_id is not None else None,
             "deal": deal,
@@ -431,6 +432,7 @@ class BotV2Client:
             "direction": direction.upper(),
             "amount": float(amount),
             "duration": int(duration),
+            "error": None,
         }
 
     async def place_order(self, *args, **kwargs):
