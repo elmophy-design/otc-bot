@@ -14,4 +14,4 @@ joblib>=1.3.0
 https://github.com/ChipaDevTeam/BinaryOptionsTools-v2/releases/download/v0.2.9/binaryoptionstoolsv2-0.2.9-cp39-abi3-manylinux_2_28_x86_64.whl
 
 # Optional live backend (install separately if needed):
-# BinaryOptionsToolsV2>=0.2.0
+ BinaryOptionsToolsV2>=0.2.0
