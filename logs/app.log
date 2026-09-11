@@ -1008,3 +1008,14 @@ BinaryOptionsToolsV2.PocketOptionError: PocketOptionError, Invalid asset: Asset 
 2026-09-11 15:04:22 - __main__ - INFO - ✅ Bot shutdown complete
 2026-09-11 15:04:22 - __main__ - INFO - 🔄 Shutting down gracefully...
 2026-09-11 15:04:22 - __main__ - ERROR - Error during shutdown: This Application is not running!
+2026-09-11 20:56:54 - src.api.factory - ERROR - LIVE_BACKEND=botv2 but BinaryOptionsToolsV2 is not installed: No module named 'BinaryOptionsToolsV2' | No module named 'BinaryOptionsToolsV2'
+2026-09-11 20:56:54 - src.api.factory - INFO - Falling back to native PocketOptionClient
+2026-09-11 20:56:54 - src.api.client - INFO - Connecting to wss://api-n.po.market/socket.io/?EIO=4&transport=websocket …
+2026-09-11 20:56:54 - src.api.client - WARNING - Connection to wss://api-n.po.market/socket.io/?EIO=4&transport=websocket failed: [Errno 11001] getaddrinfo failed
+2026-09-11 20:56:54 - src.api.client - INFO - Connecting to wss://demo-api-n.po.market/socket.io/?EIO=4&transport=websocket …
+2026-09-11 20:56:54 - src.api.client - WARNING - Connection to wss://demo-api-n.po.market/socket.io/?EIO=4&transport=websocket failed: [Errno 11001] getaddrinfo failed
+2026-09-11 20:56:54 - src.api.client - INFO - Connecting to wss://api.po.market/socket.io/?EIO=4&transport=websocket …
+2026-09-11 20:56:56 - src.api.client - WARNING - Connection to wss://api.po.market/socket.io/?EIO=4&transport=websocket failed: server rejected WebSocket connection: HTTP 403
+2026-09-11 20:56:56 - src.api.client - WARNING - Live connection failed; continuing in demo mode (server rejected WebSocket connection: HTTP 403)
+2026-09-11 20:56:56 - src.api.data_fetcher - INFO - Using demo OHLCV for EURUSD_otc (1m, n=50)
+2026-09-11 20:56:56 - src.api.client - INFO - Disconnected from PocketOption
