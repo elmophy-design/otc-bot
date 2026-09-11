@@ -56,6 +56,7 @@ class BotV2Client:
       - connect() / disconnect()
       - is_connected / is_authenticated
       - get_candles(asset, timeframe, count) -> DataFrame
+      - place_trade() / check_win() / get_balance()
     """
 
     def __init__(self, settings: Any):
@@ -150,6 +151,10 @@ class BotV2Client:
                     logger.debug("balance probe via %s failed: %s", name, e)
         return None
 
+    async def get_balance(self) -> Optional[float]:
+        """Public balance helper used by handlers/services."""
+        return await self._try_balance()
+
     async def get_candles(
         self,
         asset: str,
@@ -198,7 +203,6 @@ class BotV2Client:
 
         # 1) get_candles(asset, period, offset) — try several window sizes
         if hasattr(client, "get_candles"):
-            # offset is seconds of history to request (library-specific)
             offsets = [
                 max(count * period, 3600),   # at least 1h
                 max(count * period, 7200),   # 2h
@@ -207,7 +211,6 @@ class BotV2Client:
                 9000,
                 18000,
             ]
-            # unique, preserve order
             seen = set()
             uniq_offsets = []
             for o in offsets:
@@ -363,6 +366,94 @@ class BotV2Client:
         if len(df) > count:
             df = df.iloc[-count:]
         return df.reset_index(drop=True)
+
+    # ------------------------------------------------------------------
+    # Trading
+    # ------------------------------------------------------------------
+
+    async def place_trade(
+        self,
+        asset: str,
+        direction: str,
+        amount: float,
+        duration: int = 60,
+    ) -> dict:
+        """
+        Place a binary trade via BotV2.
+
+        direction: "CALL" | "PUT" | "call" | "put" | "buy" | "sell"
+        duration: expiry in seconds (e.g. 60)
+        """
+        if not self.is_connected or self._client is None:
+            raise RuntimeError("BotV2Client is not connected")
+
+        direction = (direction or "").strip().lower()
+        if direction in ("call", "buy", "up"):
+            method_name = "buy"
+        elif direction in ("put", "sell", "down"):
+            method_name = "sell"
+        else:
+            raise ValueError(f"Invalid direction: {direction}")
+
+        client = self._client
+        method = getattr(client, method_name, None)
+        if method is None:
+            raise AttributeError(
+                f"Underlying client has no '{method_name}' method"
+            )
+
+        try:
+            # PocketOptionAsync.buy/sell(asset, amount, time)
+            res = method(asset, float(amount), int(duration))
+            if asyncio.iscoroutine(res):
+                res = await asyncio.wait_for(res, timeout=30.0)
+        except Exception as e:
+            logger.exception("place_trade failed for %s %s", asset, direction)
+            raise RuntimeError(f"Trade failed: {e}") from e
+
+        trade_id = None
+        deal = res
+        if isinstance(res, (tuple, list)) and len(res) >= 1:
+            trade_id = res[0]
+            deal = res[1] if len(res) > 1 else res[0]
+        elif isinstance(res, dict):
+            trade_id = res.get("id") or res.get("trade_id") or res.get("order_id")
+
+        logger.info(
+            "Trade placed: asset=%s dir=%s amount=%s duration=%ss id=%s",
+            asset, direction, amount, duration, trade_id,
+        )
+        return {
+            "ok": True,
+            "trade_id": str(trade_id) if trade_id is not None else None,
+            "deal": deal,
+            "asset": asset,
+            "direction": direction.upper(),
+            "amount": float(amount),
+            "duration": int(duration),
+        }
+
+    async def place_order(self, *args, **kwargs):
+        """Alias for place_trade."""
+        return await self.place_trade(*args, **kwargs)
+
+    async def open_trade(self, *args, **kwargs):
+        """Alias for place_trade."""
+        return await self.place_trade(*args, **kwargs)
+
+    async def check_win(self, trade_id: str, timeout: Optional[int] = None) -> dict:
+        """Check result of a trade (win / loss / draw)."""
+        if not self.is_connected or self._client is None:
+            raise RuntimeError("BotV2Client is not connected")
+        client = self._client
+        if not hasattr(client, "check_win"):
+            raise AttributeError("Underlying client has no check_win")
+        res = client.check_win(trade_id)
+        if asyncio.iscoroutine(res):
+            res = await asyncio.wait_for(res, timeout=(timeout or 120))
+        if isinstance(res, dict):
+            return res
+        return {"result": res}
 
     async def disconnect(self) -> None:
         self._connected = False
