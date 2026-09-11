@@ -1,0 +1,40 @@
+signals:
+  engine: technical
+  min_confidence: 58
+  use_ai: false
+  tech_weight: 0.7
+  ai_weight: 0.3
+  technical:
+    rsi_period: 14
+    rsi_overbought: 70
+    rsi_oversold: 30
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    bb_period: 20
+    bb_std: 2.0
+    ema_fast: 9
+    ema_slow: 21
+    stoch_k: 14
+    stoch_d: 3
+    # Minimum number of the 5 indicators that must agree.
+    # Majority rule is used in the engine (bullish > bearish).
+    min_confluence: 2
+  ml:
+    model_path: models/
+    features:
+    - rsi
+    - macd
+    - bb_position
+    - volume
+    - price_change
+    prediction_threshold: 0.55
+  confidence:
+    min_required: 58
+    weight_technical: 0.7
+    weight_ml: 0.2
+    weight_pinescript: 0.05
+    weight_consensus: 0.05
+  mtf:
+    enabled: true
+    strict_filter: false

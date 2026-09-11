@@ -1,0 +1,108 @@
+api:
+  pocketoption:
+    ws_url: "wss://ws.pocketoption.com"
+    http_url: "https://api.pocketoption.com"
+    reconnect_attempts: 5
+    timeout: 30
+
+signals:
+  engine: "technical"
+  min_confidence: 70
+  use_ai: false
+  tech_weight: 0.7
+  mtf:
+    enabled: true
+    strict_filter: false
+    min_alignment: 1
+  technical:
+    rsi_period: 14
+    rsi_overbought: 70
+    rsi_oversold: 30
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    bb_period: 20
+    bb_std: 2.0
+    min_confluence: 2
+
+trading:
+  demo_mode: true
+  max_trade_amount: 5000.0
+  min_trade_amount: 200.0
+
+assets:
+  otc_list:
+    - "EURUSD_otc"
+    - "GBPUSD_otc"
+    - "USDJPY_otc"
+    - "AUDUSD_otc"
+    - "USDCAD_otc"
+    - "NZDUSD_otc"
+    - "EURJPY_otc"
+    - "EURGBP_otc"
+    - "GBPJPY_otc"
+    - "USDCHF_otc"
+    - "AUDJPY_otc"
+    - "AUDCAD_otc"
+    - "EURAUD_otc"
+    - "CADJPY_otc"
+    - "EURCHF_otc"
+    - "GBPCAD_otc"
+    - "GBPAUD_otc"
+    - "NZDJPY_otc"
+    - "CHFJPY_otc"
+    - "EURCAD_otc"
+    - "AUDCHF_otc"
+    - "CADCHF_otc"
+    - "XAUUSD_otc"
+    - "XAGUSD_otc"
+    - "XPTUSD_otc"
+    - "BTCUSD_otc"
+    - "ETHUSD_otc"
+    - "LTCUSD_otc"
+    - "XRPUSD_otc"
+    - "DOGEUSD_otc"
+    - "BNBUSD_otc"
+    - "SOLUSD_otc"
+    - "ADAUSD_otc"
+    - "TRXUSD_otc"
+    - "DOTUSD_otc"
+  categories:
+    forex:
+      - "EURUSD_otc"
+      - "GBPUSD_otc"
+      - "USDJPY_otc"
+      - "AUDUSD_otc"
+      - "USDCAD_otc"
+      - "NZDUSD_otc"
+      - "EURJPY_otc"
+      - "EURGBP_otc"
+      - "GBPJPY_otc"
+      - "USDCHF_otc"
+      - "AUDJPY_otc"
+      - "AUDCAD_otc"
+      - "EURAUD_otc"
+      - "CADJPY_otc"
+      - "EURCHF_otc"
+      - "GBPCAD_otc"
+      - "GBPAUD_otc"
+      - "NZDJPY_otc"
+      - "CHFJPY_otc"
+      - "EURCAD_otc"
+      - "AUDCHF_otc"
+      - "CADCHF_otc"
+    metals:
+      - "XAUUSD_otc"
+      - "XAGUSD_otc"
+      - "XPTUSD_otc"
+    crypto:
+      - "BTCUSD_otc"
+      - "ETHUSD_otc"
+      - "LTCUSD_otc"
+      - "XRPUSD_otc"
+      - "DOGEUSD_otc"
+      - "BNBUSD_otc"
+      - "SOLUSD_otc"
+      - "ADAUSD_otc"
+      - "TRXUSD_otc"
+      - "DOTUSD_otc"

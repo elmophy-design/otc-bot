@@ -1,0 +1,36 @@
+﻿api:
+  pocketoption:
+    ws_url: "wss://ws.pocketoption.com"
+    http_url: "https://api.pocketoption.com"
+    reconnect_attempts: 10
+    timeout: 60
+signals:
+  engine: "hybrid"
+  min_confidence: 75
+  use_ai: true
+  tech_weight: 0.5
+  mtf:
+    enabled: true
+    strict_filter: false
+    min_alignment: 1
+  technical:
+    rsi_period: 14
+    rsi_overbought: 70
+    rsi_oversold: 30
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    bb_period: 20
+    bb_std: 2.0
+    min_confluence: 2
+trading:
+  demo_mode: false
+  max_trade_amount: 50.0
+  min_trade_amount: 5.0
+assets:
+  otc_list:
+    - "EURUSD_otc"
+    - "GBPUSD_otc"
+    - "XAUUSD_otc"
+    - "BTCUSD_otc"
+    - "ETHUSD_otc"

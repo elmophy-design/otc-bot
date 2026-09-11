@@ -1,0 +1,47 @@
+﻿assets:
+  otc_list:
+    - "EURUSD_otc"
+    - "GBPUSD_otc"
+    - "USDJPY_otc"
+    - "AUDUSD_otc"
+    - "USDCAD_otc"
+    - "NZDUSD_otc"
+    - "XAUUSD_otc"
+    - "XAGUSD_otc"
+    - "BTCUSD_otc"
+    - "ETHUSD_otc"
+    - "LTCUSD_otc"
+    - "XRPUSD_otc"
+  categories:
+    forex:
+      - "EURUSD_otc"
+      - "GBPUSD_otc"
+      - "USDJPY_otc"
+      - "AUDUSD_otc"
+      - "USDCAD_otc"
+      - "NZDUSD_otc"
+    metals:
+      - "XAUUSD_otc"
+      - "XAGUSD_otc"
+    crypto:
+      - "BTCUSD_otc"
+      - "ETHUSD_otc"
+      - "LTCUSD_otc"
+      - "XRPUSD_otc"
+  metadata:
+    EURUSD_otc:
+      display_name: "EUR/USD"
+      category: "forex"
+      pip_size: 0.0001
+    GBPUSD_otc:
+      display_name: "GBP/USD"
+      category: "forex"
+      pip_size: 0.0001
+    XAUUSD_otc:
+      display_name: "Gold"
+      category: "metals"
+      pip_size: 0.01
+    BTCUSD_otc:
+      display_name: "Bitcoin"
+      category: "crypto"
+      pip_size: 1.0

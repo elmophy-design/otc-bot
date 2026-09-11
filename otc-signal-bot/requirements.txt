@@ -1,0 +1,16 @@
+﻿python-telegram-bot>=20.3
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+pandas>=2.0.3
+numpy>=1.24.3
+scipy>=1.11.1
+websockets>=11.0.3
+aiohttp>=3.8.5
+sqlalchemy>=2.0.19
+scikit-learn>=1.3.0
+xgboost>=1.7.6
+redis>=4.6.0
+joblib>=1.3.0
+
+# Optional live backend (install separately if needed):
+# BinaryOptionsToolsV2>=0.2.0

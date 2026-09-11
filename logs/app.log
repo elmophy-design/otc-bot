@@ -1,0 +1,1010 @@
+2026-09-10 14:44:16 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 14:44:16 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 14:44:16 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 14:44:16 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 14:44:27 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 14:44:27 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 14:44:27 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 14:44:27 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 16:59:25 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 16:59:25 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 16:59:25 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 16:59:25 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 16:59:25 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 16:59:25 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 16:59:29 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=16527.91)
+2026-09-10 16:59:29 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 16:59:29 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 16:59:31 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 16:59:31 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 16:59:31 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 17:00:04 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:00:04 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:00:04 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 17:00:42 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1.00 duration=120s → order_id=68d7c0d0-9076-42be-8ce6-90f59bb3350a
+2026-09-10 17:02:43 - src.api.botv2_adapter - INFO - Trade 68d7c0d0-9076-42be-8ce6-90f59bb3350a result: win
+2026-09-10 17:03:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 17:03:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 17:03:52 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 17:04:18 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:04:19 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:04:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 17:04:37 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for EURUSD_otc (period=300s)
+2026-09-10 17:04:37 - src.api.data_fetcher - INFO - Live candles: 24 rows for EURUSD_otc
+2026-09-10 17:04:37 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:05:07 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:05:07 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:05:07 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 17:05:20 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1.00 duration=120s → order_id=0faff395-7e4f-4a3d-b51b-4d293e997775
+2026-09-10 17:07:19 - src.api.botv2_adapter - INFO - Trade 0faff395-7e4f-4a3d-b51b-4d293e997775 result: win
+2026-09-10 17:08:11 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:08:11 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:08:11 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:08:45 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 17:08:45 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 17:08:46 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 17:08:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:08:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 17:08:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=CALL
+2026-09-10 17:09:12 - src.api.botv2_adapter - INFO - Trade placed: CALL USDCAD_otc amount=1.00 duration=60s → order_id=da8a7225-8c95-471c-812d-b4d725c040d8
+2026-09-10 17:10:12 - src.api.botv2_adapter - INFO - Trade da8a7225-8c95-471c-812d-b4d725c040d8 result: loss
+2026-09-10 17:10:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:10:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 17:10:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 17:10:47 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAUUSD_otc (period=60s)
+2026-09-10 17:10:47 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAUUSD_otc
+2026-09-10 17:10:48 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 17:10:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 17:10:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 17:10:59 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 17:11:09 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-10 17:11:09 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-10 17:11:09 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-10 17:11:18 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 17:11:18 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 17:11:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 17:11:36 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 17:11:36 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAGUSD_otc
+2026-09-10 17:11:36 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:11:52 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 17:11:52 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 17:11:52 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:12:12 - src.api.data_fetcher - INFO - Using demo OHLCV for XRPUSD_otc (1m, n=200)
+2026-09-10 17:12:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset XRPUSD_otc action=NO_SIGNAL
+2026-09-10 17:12:27 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for ETHUSD_otc (period=60s)
+2026-09-10 17:12:27 - src.api.data_fetcher - INFO - Live candles: 120 rows for ETHUSD_otc
+2026-09-10 17:12:27 - src.data.storage - INFO - Saved signal for user 6774660430 asset ETHUSD_otc action=NO_SIGNAL
+2026-09-10 17:12:49 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for LTCUSD_otc (period=60s)
+2026-09-10 17:12:49 - src.api.data_fetcher - INFO - Live candles: 120 rows for LTCUSD_otc
+2026-09-10 17:12:50 - src.data.storage - INFO - Saved signal for user 6774660430 asset LTCUSD_otc action=CALL
+2026-09-10 17:13:01 - src.api.botv2_adapter - INFO - Trade placed: CALL LTCUSD_otc amount=1.00 duration=120s → order_id=142853c8-e089-4c5d-bacb-2708b6e5825f
+2026-09-10 17:15:00 - src.api.botv2_adapter - INFO - Trade 142853c8-e089-4c5d-bacb-2708b6e5825f result: win
+2026-09-10 17:15:32 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for LTCUSD_otc (period=60s)
+2026-09-10 17:15:32 - src.api.data_fetcher - INFO - Live candles: 120 rows for LTCUSD_otc
+2026-09-10 17:15:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset LTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:16:54 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 17:16:54 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 17:16:54 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:17:11 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:17:24 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for LTCUSD_otc (period=60s)
+2026-09-10 17:17:24 - src.api.data_fetcher - INFO - Live candles: 120 rows for LTCUSD_otc
+2026-09-10 17:17:24 - src.data.storage - INFO - Saved signal for user 6774660430 asset LTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:17:40 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 17:17:40 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAGUSD_otc
+2026-09-10 17:17:40 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:18:18 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 17:18:18 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 17:18:18 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:18:28 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:18:28 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:18:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=PUT
+2026-09-10 17:18:40 - src.api.botv2_adapter - INFO - Trade placed: PUT EURUSD_otc amount=1.00 duration=120s → order_id=313ea5df-41e7-4b3b-abd0-013a7d98f0b1
+2026-09-10 17:20:40 - src.api.botv2_adapter - INFO - Trade 313ea5df-41e7-4b3b-abd0-013a7d98f0b1 result: win
+2026-09-10 17:23:06 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:23:06 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:23:07 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:23:19 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 17:23:19 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 17:23:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 17:23:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:23:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 17:23:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 17:23:41 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 17:23:41 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 17:23:41 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 17:24:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:24:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 17:24:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 17:24:40 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 17:24:40 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 17:24:40 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 17:25:12 - src.api.botv2_adapter - INFO - Trade placed: PUT NZDUSD_otc amount=1.00 duration=120s → order_id=112421c4-f011-4e4c-94ca-5016cd3a8601
+2026-09-10 17:27:12 - src.api.botv2_adapter - INFO - Trade 112421c4-f011-4e4c-94ca-5016cd3a8601 result: loss
+2026-09-10 17:28:12 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:28:12 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:28:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:28:21 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 17:28:21 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 17:28:21 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 17:28:30 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:28:30 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 17:28:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 17:28:39 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAUUSD_otc (period=60s)
+2026-09-10 17:28:39 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAUUSD_otc
+2026-09-10 17:28:40 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 17:28:49 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 17:28:49 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 17:28:49 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 17:28:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-10 17:28:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-10 17:28:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-10 17:29:08 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 17:29:08 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 17:29:08 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 17:29:18 - src.api.botv2_adapter - INFO - Trade placed: PUT NZDUSD_otc amount=1.00 duration=120s → order_id=ab17a7c9-3301-4093-813d-307bc2bd1cc4
+2026-09-10 17:31:18 - src.api.botv2_adapter - INFO - Trade ab17a7c9-3301-4093-813d-307bc2bd1cc4 result: loss
+2026-09-10 17:32:13 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 17:32:13 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 17:32:13 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 17:32:22 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:32:22 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:32:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:32:38 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for LTCUSD_otc (period=60s)
+2026-09-10 17:32:38 - src.api.data_fetcher - INFO - Live candles: 120 rows for LTCUSD_otc
+2026-09-10 17:32:38 - src.data.storage - INFO - Saved signal for user 6774660430 asset LTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:32:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 17:32:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 17:32:52 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:03 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 17:33:03 - src.api.data_fetcher - INFO - Live candles: 121 rows for XAGUSD_otc
+2026-09-10 17:33:04 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:10 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for XAGUSD_otc (period=300s)
+2026-09-10 17:33:10 - src.api.data_fetcher - INFO - Live candles: 24 rows for XAGUSD_otc
+2026-09-10 17:33:11 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:15 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:22 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for XAGUSD_otc (period=900s)
+2026-09-10 17:33:22 - src.api.data_fetcher - INFO - Live candles: 8 rows for XAGUSD_otc
+2026-09-10 17:33:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:33 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:33:33 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:33:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:37 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:43 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for EURUSD_otc (period=300s)
+2026-09-10 17:33:43 - src.api.data_fetcher - INFO - Live candles: 24 rows for EURUSD_otc
+2026-09-10 17:33:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:33:50 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for EURUSD_otc (period=900s)
+2026-09-10 17:33:50 - src.api.data_fetcher - INFO - Live candles: 8 rows for EURUSD_otc
+2026-09-10 17:33:51 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:34:02 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 17:34:02 - src.api.data_fetcher - INFO - Live candles: 121 rows for USDCAD_otc
+2026-09-10 17:34:02 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 17:34:13 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 17:34:13 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAGUSD_otc
+2026-09-10 17:34:14 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=CALL
+2026-09-10 17:34:27 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for XAGUSD_otc (period=300s)
+2026-09-10 17:34:27 - src.api.data_fetcher - INFO - Live candles: 24 rows for XAGUSD_otc
+2026-09-10 17:34:27 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:34:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=CALL
+2026-09-10 17:34:44 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for XAGUSD_otc (period=900s)
+2026-09-10 17:34:44 - src.api.data_fetcher - INFO - Live candles: 8 rows for XAGUSD_otc
+2026-09-10 17:34:44 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 17:35:05 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 17:35:05 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 17:35:05 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:35:08 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:35:15 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for BTCUSD_otc (period=300s)
+2026-09-10 17:35:15 - src.api.data_fetcher - INFO - Live candles: 24 rows for BTCUSD_otc
+2026-09-10 17:35:15 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:35:21 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for BTCUSD_otc (period=900s)
+2026-09-10 17:35:21 - src.api.data_fetcher - INFO - Live candles: 8 rows for BTCUSD_otc
+2026-09-10 17:35:21 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:35:45 - __main__ - ERROR - Bot error: 'NoneType' object has no attribute 'reply_text'
+2026-09-10 17:35:50 - __main__ - ERROR - Bot error: 'NoneType' object has no attribute 'reply_text'
+2026-09-10 17:36:02 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for LTCUSD_otc (period=60s)
+2026-09-10 17:36:02 - src.api.data_fetcher - INFO - Live candles: 121 rows for LTCUSD_otc
+2026-09-10 17:36:02 - src.data.storage - INFO - Saved signal for user 6774660430 asset LTCUSD_otc action=NO_SIGNAL
+2026-09-10 17:37:18 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAUUSD_otc (period=60s)
+2026-09-10 17:37:18 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAUUSD_otc
+2026-09-10 17:37:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 17:37:27 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for XAUUSD_otc (period=300s)
+2026-09-10 17:37:27 - src.api.data_fetcher - INFO - Live candles: 24 rows for XAUUSD_otc
+2026-09-10 17:37:27 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 17:37:33 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for XAUUSD_otc (period=900s)
+2026-09-10 17:37:33 - src.api.data_fetcher - INFO - Live candles: 8 rows for XAUUSD_otc
+2026-09-10 17:37:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 17:38:10 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 17:38:10 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 17:38:11 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:38:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:38:30 - src.api.botv2_adapter - INFO - Built 25 candles from 7200 ticks for EURUSD_otc (period=300s)
+2026-09-10 17:38:30 - src.api.data_fetcher - INFO - Live candles: 24 rows for EURUSD_otc
+2026-09-10 17:38:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 17:38:37 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for EURUSD_otc (period=900s)
+2026-09-10 17:38:37 - src.api.data_fetcher - INFO - Live candles: 8 rows for EURUSD_otc
+2026-09-10 17:38:37 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 20:00:44 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 20:00:44 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 20:00:45 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 20:00:45 - __main__ - ERROR - Error during shutdown: This Application is not running!
+2026-09-10 21:01:19 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 21:01:19 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 21:01:19 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 21:01:19 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 21:29:02 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 21:29:02 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 21:29:02 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 21:29:02 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 21:29:02 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 21:29:02 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 21:29:05 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=16528.59)
+2026-09-10 21:29:05 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 21:29:05 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 21:29:07 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 21:29:07 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 21:29:08 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 21:30:15 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 21:30:15 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 21:30:16 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 21:30:26 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 21:30:38 - src.api.botv2_adapter - INFO - Built 9 candles from 7200 ticks for EURUSD_otc (period=900s)
+2026-09-10 21:30:38 - src.api.data_fetcher - INFO - Live candles: 8 rows for EURUSD_otc
+2026-09-10 21:30:38 - src.api.data_fetcher - WARNING - Live data for EURUSD_otc is stale (938 s old) – discarding
+2026-09-10 21:30:38 - src.api.data_fetcher - INFO - Using demo OHLCV for EURUSD_otc (15m, n=200)
+2026-09-10 21:30:38 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 21:31:01 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 21:31:01 - src.api.data_fetcher - INFO - Live candles: 121 rows for NZDUSD_otc
+2026-09-10 21:31:01 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 21:31:17 - src.api.botv2_adapter - INFO - Trade placed: PUT NZDUSD_otc amount=1.00 duration=60s → order_id=9f619138-6f7e-4e2e-8ef0-ae37825e593d
+2026-09-10 21:34:12 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 21:34:12 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 21:34:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 21:34:31 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 21:34:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=PUT
+2026-09-10 21:35:02 - src.api.botv2_adapter - INFO - Trade placed: PUT NZDUSD_otc amount=1.00 duration=60s → order_id=ddf902da-e205-4402-a94e-7f3372eb7288
+2026-09-10 21:36:45 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 21:36:45 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 21:36:45 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 21:37:04 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1.00 duration=60s → order_id=be312c53-f4ee-4c61-ac4a-e9dc754fa3c7
+2026-09-10 21:38:56 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 21:38:56 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 21:38:57 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 21:39:13 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 21:39:13 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 21:39:13 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 21:39:30 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 21:39:30 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 21:39:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 21:39:43 - __main__ - ERROR - Bot error: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2026-09-10 21:39:49 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 21:39:49 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAGUSD_otc
+2026-09-10 21:39:50 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 21:40:05 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAUUSD_otc (period=60s)
+2026-09-10 21:40:05 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAUUSD_otc
+2026-09-10 21:40:05 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 21:40:21 - src.api.data_fetcher - INFO - Using demo OHLCV for XRPUSD_otc (1m, n=200)
+2026-09-10 21:40:21 - src.data.storage - INFO - Saved signal for user 6774660430 asset XRPUSD_otc action=NO_SIGNAL
+2026-09-10 21:40:33 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 21:40:33 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 21:40:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 21:40:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 21:40:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 21:40:51 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 21:41:01 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 21:41:05 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1.00 duration=60s → order_id=b9e82300-b72c-41f3-a714-1f2d5593550e
+2026-09-10 21:42:42 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 21:42:42 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 21:42:42 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 21:42:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 21:42:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 21:42:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-10 21:43:21 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1.00 duration=60s → order_id=2dc9de7c-6582-4979-ac5d-10bd4627e38a
+2026-09-10 21:46:59 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 21:46:59 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 21:46:59 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-10 21:46:59 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-10 21:46:59 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 21:46:59 - __main__ - ERROR - Error during shutdown: This Application is not running!
+2026-09-10 21:47:33 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 21:47:33 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 21:47:33 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 21:47:33 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 21:47:33 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 21:47:33 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 21:47:36 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=16525.13)
+2026-09-10 21:47:36 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 21:47:36 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 21:47:38 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 21:47:38 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 21:47:40 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 21:48:11 - __main__ - ERROR - Bot error: Timed out
+2026-09-10 21:48:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 21:48:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 21:48:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 21:49:13 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 21:49:13 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 21:49:13 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=PUT
+2026-09-10 21:49:32 - src.api.botv2_adapter - INFO - Trade placed: PUT GBPUSD_otc amount=1.00 duration=60s → order_id=8421b0f3-2c30-41d7-9420-a7defd98862f
+2026-09-10 22:01:14 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 22:01:14 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:01:15 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:01:15 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-10 22:01:15 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-10 22:01:45 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 22:01:45 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 22:01:45 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 22:01:45 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 22:01:45 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 22:01:45 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 22:01:48 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=16524.13)
+2026-09-10 22:01:48 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 22:01:48 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 22:01:50 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 22:01:50 - __main__ - WARNING - JobQueue unavailable (install 'python-telegram-bot[job-queue]') - trade WIN/LOSS results will not auto-post to Telegram.
+2026-09-10 22:01:50 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 22:01:51 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 22:02:17 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:02:17 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 22:02:17 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=PUT
+2026-09-10 22:02:31 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:02:31 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURUSD_otc
+2026-09-10 22:02:31 - src.api.botv2_adapter - INFO - Trade placed: PUT EURUSD_otc amount=1.00 duration=60s → order_id=0f39ca79-ce28-45c7-ba06-0cf348fc337a
+2026-09-10 22:04:46 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 22:04:46 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 22:04:46 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-10 22:04:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-10 22:05:04 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-10 22:05:04 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-10 22:05:04 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1.00 duration=60s → order_id=7167ebaa-789f-442c-b73e-aba089263f96
+2026-09-10 22:06:46 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:06:46 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 22:06:46 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 22:07:01 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 22:07:01 - src.api.data_fetcher - INFO - Live candles: 121 rows for NZDUSD_otc
+2026-09-10 22:07:01 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 22:07:15 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 22:07:15 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 22:07:15 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 22:07:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 22:07:39 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-10 22:07:39 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-10 22:07:39 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-10 22:07:50 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 22:07:50 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 22:07:50 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=CALL
+2026-09-10 22:08:03 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for GBPUSD_otc (period=60s)
+2026-09-10 22:08:03 - src.api.data_fetcher - INFO - Live candles: 1 rows for GBPUSD_otc
+2026-09-10 22:08:03 - src.api.botv2_adapter - INFO - Trade placed: CALL GBPUSD_otc amount=1.00 duration=60s → order_id=f4185ead-fbdf-4f5c-9d3c-872cdee4622d
+2026-09-10 22:09:48 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for BTCUSD_otc (period=60s)
+2026-09-10 22:09:48 - src.api.data_fetcher - INFO - Live candles: 120 rows for BTCUSD_otc
+2026-09-10 22:09:48 - src.data.storage - INFO - Saved signal for user 6774660430 asset BTCUSD_otc action=NO_SIGNAL
+2026-09-10 22:10:04 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for XAUUSD_otc (period=60s)
+2026-09-10 22:10:04 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAUUSD_otc
+2026-09-10 22:10:05 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAUUSD_otc action=NO_SIGNAL
+2026-09-10 22:10:15 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:10:15 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 22:10:15 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 22:10:25 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:10:25 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURUSD_otc
+2026-09-10 22:10:25 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1.00 duration=120s → order_id=49c68e7f-f5ec-44a3-a2d8-cd6dbc62b6d2
+2026-09-10 22:14:44 - __main__ - ERROR - Bot error: 'NoneType' object has no attribute 'reply_text'
+2026-09-10 22:14:57 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 22:14:57 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 22:14:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 22:15:08 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 22:15:08 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 22:15:08 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 22:15:21 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 22:15:21 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 22:15:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-10 22:15:41 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-10 22:15:41 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-10 22:15:41 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1.00 duration=30s → order_id=3616d81e-c79e-472d-838b-3d4cc4041625
+2026-09-10 22:28:29 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 22:28:29 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:28:30 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-10 22:28:30 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-10 22:28:30 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:28:30 - __main__ - ERROR - Error during shutdown: This Application is not running!
+2026-09-10 22:32:49 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 22:32:49 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 22:32:49 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 22:32:49 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 22:32:49 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 22:32:49 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 22:32:53 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=18744.78)
+2026-09-10 22:32:53 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 22:32:53 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 22:32:55 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 22:32:55 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 22:32:56 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 22:33:10 - src.api.botv2_adapter - INFO - Trade 0f39ca79-ce28-45c7-ba06-0cf348fc337a result: loss
+2026-09-10 22:33:10 - src.api.botv2_adapter - INFO - Trade 7167ebaa-789f-442c-b73e-aba089263f96 result: loss
+2026-09-10 22:33:10 - src.api.botv2_adapter - INFO - Trade f4185ead-fbdf-4f5c-9d3c-872cdee4622d result: loss
+2026-09-10 22:33:10 - src.api.botv2_adapter - INFO - Trade 49c68e7f-f5ec-44a3-a2d8-cd6dbc62b6d2 result: win
+2026-09-10 22:33:10 - src.api.botv2_adapter - INFO - Trade 3616d81e-c79e-472d-838b-3d4cc4041625 result: loss
+2026-09-10 22:34:11 - src.api.data_fetcher - INFO - Using demo OHLCV for TRXUSD_otc (1m, n=200)
+2026-09-10 22:34:11 - src.data.storage - INFO - Saved signal for user 6774660430 asset TRXUSD_otc action=NO_SIGNAL
+2026-09-10 22:35:17 - src.api.data_fetcher - INFO - Live candles: 3 rows for USDCHF_otc
+2026-09-10 22:35:17 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCHF_otc action=NO_SIGNAL
+2026-09-10 22:36:45 - src.api.data_fetcher - INFO - Using demo OHLCV for EURCHF_otc (1m, n=200)
+2026-09-10 22:36:45 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=NO_SIGNAL
+2026-09-10 22:37:47 - src.api.data_fetcher - INFO - Live candles: 2 rows for EURUSD_otc
+2026-09-10 22:37:47 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 22:39:00 - src.api.data_fetcher - INFO - Live candles: 3 rows for EURCHF_otc
+2026-09-10 22:39:01 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=NO_SIGNAL
+2026-09-10 22:41:31 - src.api.data_fetcher - INFO - Using demo OHLCV for AUDCAD_otc (1m, n=200)
+2026-09-10 22:41:32 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDCAD_otc action=NO_SIGNAL
+2026-09-10 22:43:28 - src.api.data_fetcher - INFO - Using demo OHLCV for TRXUSD_otc (1m, n=200)
+2026-09-10 22:43:28 - src.data.storage - INFO - Saved signal for user 6774660430 asset TRXUSD_otc action=NO_SIGNAL
+2026-09-10 22:45:30 - src.api.data_fetcher - INFO - Using demo OHLCV for EURJPY_otc (1m, n=200)
+2026-09-10 22:45:31 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-10 22:59:27 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 22:59:27 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:59:28 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 22:59:28 - __main__ - ERROR - Error during shutdown: This Application is not running!
+2026-09-10 23:00:08 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 23:00:08 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 23:00:08 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 23:00:08 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 23:00:08 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 23:00:08 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 23:00:11 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=17144.66)
+2026-09-10 23:00:11 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 23:00:11 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 23:00:13 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 23:00:13 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 23:00:13 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 23:00:59 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 23:00:59 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 23:00:59 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 23:01:17 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 23:01:17 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 23:01:17 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 23:01:27 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 23:01:27 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 23:01:27 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 23:01:39 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-10 23:01:39 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-10 23:01:39 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=CALL
+2026-09-10 23:02:02 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 23:02:02 - src.api.data_fetcher - INFO - Live candles: 121 rows for GBPUSD_otc
+2026-09-10 23:02:02 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=PUT
+2026-09-10 23:02:13 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=PUT
+2026-09-10 23:02:20 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for GBPUSD_otc (period=60s)
+2026-09-10 23:02:20 - src.api.data_fetcher - INFO - Live candles: 1 rows for GBPUSD_otc
+2026-09-10 23:02:20 - src.api.botv2_adapter - INFO - Trade placed: PUT GBPUSD_otc amount=10.00 duration=60s → order_id=c785dc7e-9d7d-4bb1-a90f-90eb19bbaf7e
+2026-09-10 23:03:28 - src.api.botv2_adapter - INFO - Trade c785dc7e-9d7d-4bb1-a90f-90eb19bbaf7e result: win
+2026-09-10 23:04:32 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-10 23:04:32 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-10 23:04:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-10 23:04:48 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 23:04:48 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 23:04:48 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 23:04:59 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-10 23:04:59 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-10 23:04:59 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=PUT
+2026-09-10 23:05:12 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURGBP_otc (period=60s)
+2026-09-10 23:05:12 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURGBP_otc
+2026-09-10 23:05:13 - src.api.botv2_adapter - INFO - Trade placed: PUT EURGBP_otc amount=10.00 duration=60s → order_id=51367ada-385d-46bc-9a76-86c9fd937885
+2026-09-10 23:06:28 - src.api.botv2_adapter - INFO - Trade 51367ada-385d-46bc-9a76-86c9fd937885 result: win
+2026-09-10 23:06:57 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-10 23:06:57 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-10 23:06:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=NO_SIGNAL
+2026-09-10 23:07:17 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-10 23:07:17 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDJPY_otc
+2026-09-10 23:07:17 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=PUT
+2026-09-10 23:07:25 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for AUDJPY_otc (period=60s)
+2026-09-10 23:07:25 - src.api.data_fetcher - INFO - Live candles: 1 rows for AUDJPY_otc
+2026-09-10 23:07:25 - src.api.botv2_adapter - INFO - Trade placed: PUT AUDJPY_otc amount=10.00 duration=60s → order_id=e633bebb-926d-4ee9-85a9-75ee40bf6d5b
+2026-09-10 23:08:43 - src.api.botv2_adapter - INFO - Trade e633bebb-926d-4ee9-85a9-75ee40bf6d5b result: loss
+2026-09-10 23:08:48 - __main__ - ERROR - Failed to notify chat 6774660430 of trade result
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\Acer\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Acer\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\src\bot\main.py", line 155, in _resolve_trades_job
+    await self.application.bot.send_message(
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 3150, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\_bot.py", line 1138, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 638, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\_bot.py", line 828, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-09-10 23:14:18 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-10 23:14:18 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 23:14:18 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-10 23:14:18 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-10 23:14:18 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-10 23:14:50 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-10 23:14:50 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-10 23:14:50 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-10 23:14:50 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-10 23:14:50 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-10 23:14:50 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-10 23:14:53 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=17148.46)
+2026-09-10 23:14:53 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-10 23:14:53 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-10 23:14:55 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-10 23:14:55 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-10 23:14:56 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-10 23:15:35 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 23:15:35 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 23:15:35 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 23:15:46 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 23:15:46 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 23:15:46 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-10 23:15:54 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-10 23:15:54 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-10 23:15:54 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1600.00 duration=60s → order_id=4759a802-d853-4234-bd01-4d5faf17457e
+2026-09-10 23:17:10 - src.api.botv2_adapter - INFO - Trade 4759a802-d853-4234-bd01-4d5faf17457e result: loss
+2026-09-10 23:17:35 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-10 23:17:35 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-10 23:17:35 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-10 23:17:47 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-10 23:17:47 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-10 23:17:47 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=PUT
+2026-09-10 23:17:56 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURJPY_otc (period=60s)
+2026-09-10 23:17:56 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURJPY_otc
+2026-09-10 23:17:56 - src.api.botv2_adapter - ERROR - place_trade failed: PocketOptionError, Invalid asset: Asset is not active
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\src\api\botv2_adapter.py", line 552, in place_trade
+    res = await asyncio.wait_for(res, timeout=30.0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 364, in sell
+    return await self._place_trade(self.client.sell, asset, amount, time, check_win)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 352, in _place_trade
+    trade_id, trade = await method(asset, amount, time)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BinaryOptionsToolsV2.PocketOptionError: PocketOptionError, Invalid asset: Asset is not active
+2026-09-10 23:18:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=PUT
+2026-09-10 23:18:37 - src.api.botv2_adapter - ERROR - place_trade failed: PocketOptionError, Invalid asset: Asset is not active
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\src\api\botv2_adapter.py", line 552, in place_trade
+    res = await asyncio.wait_for(res, timeout=30.0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 364, in sell
+    return await self._place_trade(self.client.sell, asset, amount, time, check_win)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 352, in _place_trade
+    trade_id, trade = await method(asset, amount, time)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BinaryOptionsToolsV2.PocketOptionError: PocketOptionError, Invalid asset: Asset is not active
+2026-09-10 23:20:48 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-10 23:20:48 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-10 23:20:48 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-10 23:20:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-10 23:20:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-10 23:20:59 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-10 23:21:09 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-10 23:21:09 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-10 23:21:09 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-10 23:21:19 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-10 23:21:19 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-10 23:21:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-10 23:21:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-10 23:21:43 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-10 23:21:43 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-10 23:21:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=PUT
+2026-09-10 23:22:41 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-10 23:22:41 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-10 23:22:41 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=PUT
+2026-09-10 23:22:51 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for GBPJPY_otc (period=60s)
+2026-09-10 23:22:51 - src.api.data_fetcher - INFO - Live candles: 1 rows for GBPJPY_otc
+2026-09-10 23:22:51 - src.api.botv2_adapter - INFO - Trade placed: PUT GBPJPY_otc amount=1600.00 duration=60s → order_id=e0bd8f24-aa20-4316-8543-8cbce03b1412
+2026-09-10 23:24:10 - src.api.botv2_adapter - INFO - Trade e0bd8f24-aa20-4316-8543-8cbce03b1412 result: win
+2026-09-10 23:24:43 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-10 23:24:43 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDJPY_otc
+2026-09-10 23:24:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=NO_SIGNAL
+2026-09-10 23:24:54 - src.api.data_fetcher - INFO - Using demo OHLCV for EURAUD_otc (1m, n=200)
+2026-09-10 23:24:55 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURAUD_otc action=NO_SIGNAL
+2026-09-10 23:25:14 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURCHF_otc (period=60s)
+2026-09-10 23:25:14 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURCHF_otc
+2026-09-10 23:25:15 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=NO_SIGNAL
+2026-09-10 23:25:33 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCHF_otc (period=60s)
+2026-09-10 23:25:33 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCHF_otc
+2026-09-10 23:25:34 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCHF_otc action=CALL
+2026-09-10 23:25:42 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDCHF_otc (period=60s)
+2026-09-10 23:25:42 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDCHF_otc
+2026-09-10 23:25:42 - src.api.botv2_adapter - INFO - Trade placed: CALL USDCHF_otc amount=1600.00 duration=60s → order_id=f8cc3525-0175-48b5-b4f2-cec100bcfec1
+2026-09-10 23:26:55 - src.api.botv2_adapter - INFO - Trade f8cc3525-0175-48b5-b4f2-cec100bcfec1 result: win
+2026-09-10 23:27:23 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDCAD_otc (period=60s)
+2026-09-10 23:27:23 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDCAD_otc
+2026-09-10 23:27:23 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDCAD_otc action=NO_SIGNAL
+2026-09-10 23:27:45 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CADJPY_otc (period=60s)
+2026-09-10 23:27:45 - src.api.data_fetcher - INFO - Live candles: 120 rows for CADJPY_otc
+2026-09-10 23:27:45 - src.data.storage - INFO - Saved signal for user 6774660430 asset CADJPY_otc action=NO_SIGNAL
+2026-09-10 23:27:55 - src.api.data_fetcher - INFO - Using demo OHLCV for GBPCAD_otc (1m, n=200)
+2026-09-10 23:27:55 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPCAD_otc action=NO_SIGNAL
+2026-09-10 23:28:13 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDJPY_otc (period=60s)
+2026-09-10 23:28:13 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDJPY_otc
+2026-09-10 23:28:13 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDJPY_otc action=NO_SIGNAL
+2026-09-10 23:28:39 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-10 23:28:39 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-10 23:28:39 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=NO_SIGNAL
+2026-09-10 23:28:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 23:28:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 23:28:51 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 23:29:04 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 23:29:04 - src.api.data_fetcher - INFO - Live candles: 121 rows for EURUSD_otc
+2026-09-10 23:29:04 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-10 23:29:22 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-10 23:29:22 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-10 23:29:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-10 23:29:41 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCHF_otc (period=60s)
+2026-09-10 23:29:41 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCHF_otc
+2026-09-10 23:29:42 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCHF_otc action=NO_SIGNAL
+2026-09-10 23:29:58 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CHFJPY_otc (period=60s)
+2026-09-10 23:29:58 - src.api.data_fetcher - INFO - Live candles: 120 rows for CHFJPY_otc
+2026-09-10 23:29:58 - src.data.storage - INFO - Saved signal for user 6774660430 asset CHFJPY_otc action=NO_SIGNAL
+2026-09-10 23:30:17 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDJPY_otc (period=60s)
+2026-09-10 23:30:17 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDJPY_otc
+2026-09-10 23:30:18 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDJPY_otc action=NO_SIGNAL
+2026-09-10 23:30:36 - src.api.data_fetcher - INFO - Using demo OHLCV for EURCAD_otc (1m, n=200)
+2026-09-10 23:30:36 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCAD_otc action=NO_SIGNAL
+2026-09-10 23:30:53 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CADCHF_otc (period=60s)
+2026-09-10 23:30:53 - src.api.data_fetcher - INFO - Live candles: 120 rows for CADCHF_otc
+2026-09-10 23:30:53 - src.data.storage - INFO - Saved signal for user 6774660430 asset CADCHF_otc action=NO_SIGNAL
+2026-09-10 23:31:07 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for XAGUSD_otc (period=60s)
+2026-09-10 23:31:07 - src.api.data_fetcher - INFO - Live candles: 120 rows for XAGUSD_otc
+2026-09-10 23:31:08 - src.data.storage - INFO - Saved signal for user 6774660430 asset XAGUSD_otc action=NO_SIGNAL
+2026-09-10 23:31:21 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-10 23:31:21 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-10 23:31:22 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-10 23:31:33 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-10 23:31:33 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-10 23:31:33 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-10 23:31:43 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURUSD_otc (period=60s)
+2026-09-10 23:31:43 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURUSD_otc
+2026-09-10 23:31:43 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1600.00 duration=60s → order_id=8e8d1aec-35ed-4967-97c2-eb8cb0bc3788
+2026-09-10 23:32:55 - src.api.botv2_adapter - INFO - Trade 8e8d1aec-35ed-4967-97c2-eb8cb0bc3788 result: win
+2026-09-11 12:57:33 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-11 12:57:33 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-11 12:57:33 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-11 12:57:33 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-11 12:57:33 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-11 13:03:47 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-11 13:03:47 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-11 13:03:47 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-11 13:03:47 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-11 13:03:47 - __main__ - INFO - Broker backend=botv2 botv2_available=True demo_mode=True
+2026-09-11 13:03:47 - src.api.factory - INFO - Using BinaryOptionsToolsV2 backend
+2026-09-11 13:03:51 - src.api.botv2_adapter - INFO - ✅ BotV2 connected (balance=19212.46)
+2026-09-11 13:03:51 - __main__ - INFO - ✅ API Client connected (BotV2Client)
+2026-09-11 13:03:51 - __main__ - INFO - ✅ Signal engine ready (multi-indicator TA)
+2026-09-11 13:03:52 - src.models.database - INFO - Database initialized: sqlite:///data/bot.db
+2026-09-11 13:03:53 - __main__ - INFO - ✅ Bot initialized successfully
+2026-09-11 13:03:53 - __main__ - INFO - 🚀 Bot is running in DEMO mode! Press Ctrl+C to stop.
+2026-09-11 13:04:26 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-11 13:04:26 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-11 13:04:26 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-11 13:04:47 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:04:47 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:04:47 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-11 13:05:03 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:05:03 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-11 13:05:03 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1600.00 duration=60s → order_id=44553ebb-287f-4a37-86f3-938589259e2f
+2026-09-11 13:06:23 - src.api.botv2_adapter - INFO - Trade 44553ebb-287f-4a37-86f3-938589259e2f result: loss
+2026-09-11 13:07:28 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-11 13:07:28 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-11 13:07:28 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-11 13:07:37 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:07:37 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:07:38 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=CALL
+2026-09-11 13:07:51 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:07:51 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURJPY_otc
+2026-09-11 13:07:51 - src.api.botv2_adapter - INFO - Trade placed: CALL EURJPY_otc amount=1600.00 duration=60s → order_id=5ffef033-8919-4ee0-8182-7c577c5ea133
+2026-09-11 13:09:08 - src.api.botv2_adapter - INFO - Trade 5ffef033-8919-4ee0-8182-7c577c5ea133 result: win
+2026-09-11 13:09:33 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-11 13:09:33 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-11 13:09:34 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-11 13:09:44 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-11 13:09:44 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-11 13:09:45 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-11 13:09:55 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-11 13:09:55 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-11 13:09:55 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-11 13:10:05 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:10:05 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-11 13:10:05 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-11 13:10:10 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-11 13:10:21 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-11 13:10:21 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-11 13:10:21 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=NO_SIGNAL
+2026-09-11 13:10:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:10:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:10:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-11 13:10:40 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:10:40 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-11 13:10:40 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1600.00 duration=60s → order_id=63e9a3b1-39ea-455d-aa5b-faee4d408263
+2026-09-11 13:11:53 - src.api.botv2_adapter - INFO - Trade 63e9a3b1-39ea-455d-aa5b-faee4d408263 result: loss
+2026-09-11 13:12:10 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-11 13:12:10 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDJPY_otc
+2026-09-11 13:12:10 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=NO_SIGNAL
+2026-09-11 13:12:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:12:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:12:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=CALL
+2026-09-11 13:12:39 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:12:39 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURJPY_otc
+2026-09-11 13:12:39 - src.api.botv2_adapter - INFO - Trade placed: CALL EURJPY_otc amount=1600.00 duration=60s → order_id=af05ce81-28e1-4221-b841-88d02b7fd9fb
+2026-09-11 13:13:53 - src.api.botv2_adapter - INFO - Trade af05ce81-28e1-4221-b841-88d02b7fd9fb result: win
+2026-09-11 13:14:19 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:14:19 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:14:19 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-11 13:14:32 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-11 13:14:32 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-11 13:14:32 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-11 13:14:43 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:14:43 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-11 13:14:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-11 13:15:09 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-11 13:15:09 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDUSD_otc
+2026-09-11 13:15:09 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=PUT
+2026-09-11 13:15:17 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for AUDUSD_otc (period=60s)
+2026-09-11 13:15:17 - src.api.data_fetcher - INFO - Live candles: 1 rows for AUDUSD_otc
+2026-09-11 13:15:18 - src.api.botv2_adapter - INFO - Trade placed: PUT AUDUSD_otc amount=1600.00 duration=60s → order_id=41654ac2-83d8-4be1-baf6-a20ce02ff94f
+2026-09-11 13:16:38 - src.api.botv2_adapter - INFO - Trade 41654ac2-83d8-4be1-baf6-a20ce02ff94f result: win
+2026-09-11 13:16:53 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-11 13:16:53 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-11 13:16:54 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-11 13:17:04 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-11 13:17:04 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-11 13:17:04 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-11 13:17:16 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:17:16 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-11 13:17:16 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-11 13:17:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCHF_otc (period=60s)
+2026-09-11 13:17:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCHF_otc
+2026-09-11 13:17:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCHF_otc action=NO_SIGNAL
+2026-09-11 13:17:50 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:17:50 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:17:50 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=PUT
+2026-09-11 13:17:58 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:17:58 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURJPY_otc
+2026-09-11 13:17:58 - src.api.botv2_adapter - INFO - Trade placed: PUT EURJPY_otc amount=1600.00 duration=60s → order_id=28ff52cd-2a20-4b82-bbfe-488cb5e4a28b
+2026-09-11 13:19:08 - src.api.botv2_adapter - INFO - Trade 28ff52cd-2a20-4b82-bbfe-488cb5e4a28b result: win
+2026-09-11 13:20:18 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-11 13:20:18 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDJPY_otc
+2026-09-11 13:20:18 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=PUT
+2026-09-11 13:20:26 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for AUDJPY_otc (period=60s)
+2026-09-11 13:20:26 - src.api.data_fetcher - INFO - Live candles: 1 rows for AUDJPY_otc
+2026-09-11 13:20:26 - src.api.botv2_adapter - INFO - Trade placed: PUT AUDJPY_otc amount=1600.00 duration=60s → order_id=d4ed455a-ead6-44eb-9c62-78089852d979
+2026-09-11 13:21:38 - src.api.botv2_adapter - INFO - Trade d4ed455a-ead6-44eb-9c62-78089852d979 result: win
+2026-09-11 13:22:57 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:22:57 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:22:57 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=CALL
+2026-09-11 13:23:05 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:23:05 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-11 13:23:05 - src.api.botv2_adapter - INFO - Trade placed: CALL USDJPY_otc amount=1600.00 duration=60s → order_id=8cdd6671-ab7b-40de-8845-fd33ddc72e93
+2026-09-11 13:24:23 - src.api.botv2_adapter - INFO - Trade 8cdd6671-ab7b-40de-8845-fd33ddc72e93 result: win
+2026-09-11 13:24:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:24:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:24:52 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-11 13:25:11 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURCHF_otc (period=60s)
+2026-09-11 13:25:11 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURCHF_otc
+2026-09-11 13:25:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=PUT
+2026-09-11 13:25:26 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCHF_otc (period=60s)
+2026-09-11 13:25:26 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCHF_otc
+2026-09-11 13:25:27 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCHF_otc action=NO_SIGNAL
+2026-09-11 13:26:49 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-11 13:26:49 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-11 13:26:49 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-11 13:27:02 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:27:02 - src.api.data_fetcher - INFO - Live candles: 121 rows for EURJPY_otc
+2026-09-11 13:27:02 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-11 13:27:21 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-11 13:27:21 - src.api.data_fetcher - INFO - Live candles: 120 rows for AUDJPY_otc
+2026-09-11 13:27:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=NO_SIGNAL
+2026-09-11 13:27:46 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CHFJPY_otc (period=60s)
+2026-09-11 13:27:46 - src.api.data_fetcher - INFO - Live candles: 120 rows for CHFJPY_otc
+2026-09-11 13:27:47 - src.data.storage - INFO - Saved signal for user 6774660430 asset CHFJPY_otc action=NO_SIGNAL
+2026-09-11 13:28:06 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDJPY_otc (period=60s)
+2026-09-11 13:28:06 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDJPY_otc
+2026-09-11 13:28:07 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDJPY_otc action=NO_SIGNAL
+2026-09-11 13:28:20 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-11 13:28:20 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-11 13:28:21 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-11 13:28:37 - src.api.data_fetcher - INFO - Using demo OHLCV for GBPCAD_otc (1m, n=200)
+2026-09-11 13:28:38 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPCAD_otc action=NO_SIGNAL
+2026-09-11 13:29:04 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-11 13:29:04 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-11 13:29:05 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=PUT
+2026-09-11 13:29:12 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for GBPJPY_otc (period=60s)
+2026-09-11 13:29:12 - src.api.data_fetcher - INFO - Live candles: 1 rows for GBPJPY_otc
+2026-09-11 13:29:12 - src.api.botv2_adapter - INFO - Trade placed: PUT GBPJPY_otc amount=1600.00 duration=60s → order_id=34803c1f-8f52-44fc-9390-c8e6e96503d9
+2026-09-11 13:30:23 - src.api.botv2_adapter - INFO - Trade 34803c1f-8f52-44fc-9390-c8e6e96503d9 result: win
+2026-09-11 13:33:29 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:33:29 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:33:29 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-11 13:34:00 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDJPY_otc (period=60s)
+2026-09-11 13:34:00 - src.api.data_fetcher - INFO - Live candles: 121 rows for AUDJPY_otc
+2026-09-11 13:34:00 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDJPY_otc action=NO_SIGNAL
+2026-09-11 13:34:12 - src.api.data_fetcher - INFO - Using demo OHLCV for EURAUD_otc (1m, n=200)
+2026-09-11 13:34:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURAUD_otc action=PUT
+2026-09-11 13:34:19 - src.api.data_fetcher - INFO - Using demo OHLCV for EURAUD_otc (1m, n=1)
+2026-09-11 13:34:19 - src.bot.handlers - WARNING - Could not fetch fresh entry price for EURAUD_otc before trade
+2026-09-11 13:34:19 - src.api.botv2_adapter - ERROR - place_trade failed: PocketOptionError, Invalid asset: Asset with symbol `EURAUD_otc` not found
+Traceback (most recent call last):
+  File "C:\Users\Acer\otc-signal-bot\src\api\botv2_adapter.py", line 552, in place_trade
+    res = await asyncio.wait_for(res, timeout=30.0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 364, in sell
+    return await self._place_trade(self.client.sell, asset, amount, time, check_win)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Acer\otc-signal-bot\.venv\Lib\site-packages\BinaryOptionsToolsV2\pocketoption\asynchronous.py", line 352, in _place_trade
+    trade_id, trade = await method(asset, amount, time)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BinaryOptionsToolsV2.PocketOptionError: PocketOptionError, Invalid asset: Asset with symbol `EURAUD_otc` not found
+2026-09-11 13:34:43 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CHFJPY_otc (period=60s)
+2026-09-11 13:34:43 - src.api.data_fetcher - INFO - Live candles: 120 rows for CHFJPY_otc
+2026-09-11 13:34:43 - src.data.storage - INFO - Saved signal for user 6774660430 asset CHFJPY_otc action=NO_SIGNAL
+2026-09-11 13:35:09 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDJPY_otc (period=60s)
+2026-09-11 13:35:09 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDJPY_otc
+2026-09-11 13:35:09 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDJPY_otc action=NO_SIGNAL
+2026-09-11 13:35:32 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPAUD_otc (period=60s)
+2026-09-11 13:35:32 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPAUD_otc
+2026-09-11 13:35:32 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPAUD_otc action=CALL
+2026-09-11 13:35:47 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-11 13:35:47 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-11 13:35:47 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=NO_SIGNAL
+2026-09-11 13:35:59 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURCHF_otc (period=60s)
+2026-09-11 13:35:59 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURCHF_otc
+2026-09-11 13:35:59 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=NO_SIGNAL
+2026-09-11 13:36:24 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPJPY_otc (period=60s)
+2026-09-11 13:36:24 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPJPY_otc
+2026-09-11 13:36:24 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPJPY_otc action=NO_SIGNAL
+2026-09-11 13:36:44 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for CADJPY_otc (period=60s)
+2026-09-11 13:36:44 - src.api.data_fetcher - INFO - Live candles: 120 rows for CADJPY_otc
+2026-09-11 13:36:44 - src.data.storage - INFO - Saved signal for user 6774660430 asset CADJPY_otc action=CALL
+2026-09-11 13:37:04 - src.api.botv2_adapter - INFO - Built 120 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:37:04 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-11 13:37:04 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=NO_SIGNAL
+2026-09-11 13:37:16 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:37:16 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:37:16 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=NO_SIGNAL
+2026-09-11 13:37:30 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for GBPUSD_otc (period=60s)
+2026-09-11 13:37:30 - src.api.data_fetcher - INFO - Live candles: 120 rows for GBPUSD_otc
+2026-09-11 13:37:30 - src.data.storage - INFO - Saved signal for user 6774660430 asset GBPUSD_otc action=NO_SIGNAL
+2026-09-11 13:37:39 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-11 13:37:39 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-11 13:37:40 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=NO_SIGNAL
+2026-09-11 13:37:56 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURCHF_otc (period=60s)
+2026-09-11 13:37:56 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURCHF_otc
+2026-09-11 13:37:56 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURCHF_otc action=NO_SIGNAL
+2026-09-11 13:38:12 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:38:12 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDJPY_otc
+2026-09-11 13:38:12 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDJPY_otc action=PUT
+2026-09-11 13:38:21 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDJPY_otc (period=60s)
+2026-09-11 13:38:21 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDJPY_otc
+2026-09-11 13:38:21 - src.api.botv2_adapter - INFO - Trade placed: PUT USDJPY_otc amount=1600.00 duration=60s → order_id=a5f07b89-7bc5-40e2-8d9d-8fb4182fe11d
+2026-09-11 13:39:38 - src.api.botv2_adapter - INFO - Trade a5f07b89-7bc5-40e2-8d9d-8fb4182fe11d result: loss
+2026-09-11 13:40:14 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:40:14 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURGBP_otc
+2026-09-11 13:40:14 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURGBP_otc action=CALL
+2026-09-11 13:40:29 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURGBP_otc (period=60s)
+2026-09-11 13:40:29 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURGBP_otc
+2026-09-11 13:40:29 - src.api.botv2_adapter - INFO - Trade placed: CALL EURGBP_otc amount=1600.00 duration=60s → order_id=87331724-9624-4cf0-bbd1-bb6b9fdbd1b7
+2026-09-11 13:41:38 - src.api.botv2_adapter - INFO - Trade 87331724-9624-4cf0-bbd1-bb6b9fdbd1b7 result: loss
+2026-09-11 13:42:41 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:42:41 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:42:41 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-11 13:42:50 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for NZDUSD_otc (period=60s)
+2026-09-11 13:42:50 - src.api.data_fetcher - INFO - Live candles: 120 rows for NZDUSD_otc
+2026-09-11 13:42:50 - src.data.storage - INFO - Saved signal for user 6774660430 asset NZDUSD_otc action=NO_SIGNAL
+2026-09-11 13:43:00 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for AUDUSD_otc (period=60s)
+2026-09-11 13:43:00 - src.api.data_fetcher - INFO - Live candles: 121 rows for AUDUSD_otc
+2026-09-11 13:43:00 - src.data.storage - INFO - Saved signal for user 6774660430 asset AUDUSD_otc action=NO_SIGNAL
+2026-09-11 13:45:40 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURJPY_otc (period=60s)
+2026-09-11 13:45:40 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURJPY_otc
+2026-09-11 13:45:40 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURJPY_otc action=NO_SIGNAL
+2026-09-11 13:45:55 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for USDCAD_otc (period=60s)
+2026-09-11 13:45:55 - src.api.data_fetcher - INFO - Live candles: 120 rows for USDCAD_otc
+2026-09-11 13:45:56 - src.data.storage - INFO - Saved signal for user 6774660430 asset USDCAD_otc action=PUT
+2026-09-11 13:46:04 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for USDCAD_otc (period=60s)
+2026-09-11 13:46:04 - src.api.data_fetcher - INFO - Live candles: 1 rows for USDCAD_otc
+2026-09-11 13:46:04 - src.api.botv2_adapter - INFO - Trade placed: PUT USDCAD_otc amount=1600.00 duration=60s → order_id=04cfcd46-2bf6-4008-8d4b-26a37f05668c
+2026-09-11 13:47:23 - src.api.botv2_adapter - INFO - Trade 04cfcd46-2bf6-4008-8d4b-26a37f05668c result: loss
+2026-09-11 14:56:51 - src.api.botv2_adapter - INFO - Built 121 candles from 7200 ticks for EURUSD_otc (period=60s)
+2026-09-11 14:56:51 - src.api.data_fetcher - INFO - Live candles: 120 rows for EURUSD_otc
+2026-09-11 14:56:51 - src.data.storage - INFO - Saved signal for user 6774660430 asset EURUSD_otc action=CALL
+2026-09-11 14:57:11 - src.api.botv2_adapter - INFO - Built 6 candles from 300 ticks for EURUSD_otc (period=60s)
+2026-09-11 14:57:11 - src.api.data_fetcher - INFO - Live candles: 1 rows for EURUSD_otc
+2026-09-11 14:57:11 - src.api.botv2_adapter - INFO - Trade placed: CALL EURUSD_otc amount=1600.00 duration=60s → order_id=ea2e7838-2a0c-4ee4-bf2b-bd6b32f1b4d1
+2026-09-11 14:58:23 - src.api.botv2_adapter - INFO - Trade ea2e7838-2a0c-4ee4-bf2b-bd6b32f1b4d1 result: loss
+2026-09-11 15:04:21 - __main__ - INFO - Received signal 2, shutting down...
+2026-09-11 15:04:21 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-11 15:04:22 - src.api.botv2_adapter - INFO - BotV2 disconnected
+2026-09-11 15:04:22 - __main__ - INFO - ✅ Bot shutdown complete
+2026-09-11 15:04:22 - __main__ - INFO - 🔄 Shutting down gracefully...
+2026-09-11 15:04:22 - __main__ - ERROR - Error during shutdown: This Application is not running!
