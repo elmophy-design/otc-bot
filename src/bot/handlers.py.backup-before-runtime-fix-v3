@@ -105,28 +105,14 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     admin_service = context.bot_data.get("admin_service") or AdminService(settings)
     storage = context.bot_data.get("storage") or DataStorage()
 
-    # Respect PREMIUM_ONLY. When false, analytics are available to all users.
-    premium_only = bool(getattr(settings, "PREMIUM_ONLY", False))
-    if (
-        premium_only
-        and not admin_service.is_admin(user.id)
-        and not admin_service.is_premium(user.id)
-    ):
-        await _safe_reply(
-            update,
-            "🔒 <b>Premium Feature</b>\n\n"
-            "Analytics are available to premium members only.\n"
+    # Premium gating: admins always have access; others need premium
+    if not admin_service.is_admin(user.id) and not admin_service.is_premium(user.id):
+        await update.message.reply_text(
+            "🔒 <b>Premium Feature</b>\n\nAnalytics are available to premium members only.\n"
             "Please contact an admin to upgrade your account.",
             parse_mode="HTML",
         )
         return
-
-    logger.info(
-        "Analytics requested: user=%s callback=%s premium_only=%s",
-        user.id,
-        bool(getattr(update, "callback_query", None)),
-        premium_only,
-    )
 
     summary = storage.get_performance_summary(user.id, limit=10)
     trade_stats = storage.get_trade_stats(user_id=user.id, limit=10)
@@ -186,36 +172,11 @@ async def analytics_inline_callback(
     update: Update,
     context: ContextTypes.DEFAULT_TYPE,
 ):
-    """Handle My Analytics safely from an inline callback."""
+    # Callback wrapper for the My Analytics button.
     query = update.callback_query
-    if query is None:
-        await analytics_command(update, context)
-        return
-
-    try:
+    if query is not None:
         await query.answer()
-        logger.info(
-            "My Analytics callback received: user=%s data=%s",
-            query.from_user.id if query.from_user else None,
-            query.data,
-        )
-        await analytics_command(update, context)
-    except Exception:
-        logger.exception(
-            "My Analytics callback failed: user=%s",
-            query.from_user.id if query.from_user else None,
-        )
-        try:
-            await query.edit_message_text(
-                "⚠️ <b>Analytics could not be loaded.</b>\n\n"
-                "The bot logged the error. Please try again.",
-                parse_mode="HTML",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("🏠 Main Menu", callback_data="main_menu")]]
-                ),
-            )
-        except Exception:
-            logger.exception("Could not display analytics error message")
+    await analytics_command(update, context)
 
 
 def _period_bounds(kind: str):

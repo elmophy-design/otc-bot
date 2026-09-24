@@ -387,45 +387,11 @@ class BotV2Client:
 
         trade_id = None
         deal = res
-
-        # BinaryOptionsToolsV2 normally returns (trade_id, trade_data).
         if isinstance(res, (tuple, list)) and len(res) >= 1:
             trade_id = res[0]
             deal = res[1] if len(res) > 1 else res[0]
         elif isinstance(res, dict):
-            trade_id = (
-                res.get("id")
-                or res.get("trade_id")
-                or res.get("order_id")
-                or res.get("deal_id")
-                or res.get("request_id")
-            )
-        else:
-            for attr in ("id", "trade_id", "order_id", "deal_id", "request_id"):
-                value = getattr(res, attr, None)
-                if value is not None:
-                    trade_id = value
-                    break
-
-        # Some wrappers put the ID on the returned deal object.
-        if trade_id is None and deal is not None:
-            if isinstance(deal, dict):
-                trade_id = (
-                    deal.get("id")
-                    or deal.get("trade_id")
-                    or deal.get("order_id")
-                    or deal.get("deal_id")
-                    or deal.get("request_id")
-                )
-            else:
-                for attr in ("id", "trade_id", "order_id", "deal_id", "request_id"):
-                    value = getattr(deal, attr, None)
-                    if value is not None:
-                        trade_id = value
-                        break
-
-        if trade_id is not None:
-            trade_id = str(trade_id)
+            trade_id = res.get("id") or res.get("trade_id") or res.get("order_id")
 
         logger.info(
             "Trade placed: asset=%s dir=%s amount=%s duration=%ss id=%s",

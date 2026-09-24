@@ -293,10 +293,6 @@ class DataStorage:
                         row.result = "REQUIRES_RECONCILIATION"
                         row.broker_result = "MISSING_ORDER_ID"
                         row.settlement_source = "missing_order_id"
-                        logger.error(
-                            "Trade %s cannot settle: missing broker order_id",
-                            row.id,
-                        )
                         continue
 
                     if not hasattr(api_client, "check_win"):
@@ -305,21 +301,9 @@ class DataStorage:
                         row.settlement_source = "missing_check_win"
                         continue
 
-                    logger.info(
-                        "Checking broker settlement: trade=%s order=%s attempt=%s",
-                        row.id,
-                        row.order_id,
-                        row.settlement_attempts,
-                    )
                     res = await api_client.check_win(
                         row.order_id,
                         timeout=20,
-                    )
-                    logger.info(
-                        "Broker settlement response: trade=%s order=%s response=%r",
-                        row.id,
-                        row.order_id,
-                        res,
                     )
 
                     if not isinstance(res, dict):

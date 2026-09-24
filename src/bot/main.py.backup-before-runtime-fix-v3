@@ -58,7 +58,6 @@ class OTCTradingBot:
         self.api_client = None
         self.data_fetcher: Optional[MarketDataFetcher] = None
         self.signal_engine: Optional[SignalEngine] = None
-        self._settlement_task: Optional[asyncio.Task] = None
 
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
@@ -116,15 +115,9 @@ class OTCTradingBot:
 
             self._register_handlers()
 
-            # Always run a native asyncio settlement worker. This does not
-            # depend on python-telegram-bot JobQueue being available.
-            if self._settlement_task is None or self._settlement_task.done():
-                self._settlement_task = asyncio.create_task(
-                    self._settlement_loop(),
-                    name="otc_settlement_loop",
-                )
-                logger.info("✅ Native settlement loop started (15s interval)")
-
+            # Periodic job: resolve PENDING executed trades into WIN/LOSS
+            # once their expiry has passed, and push the result to the
+            # user on Telegram.
             if self.application.job_queue is not None:
                 self.application.job_queue.run_repeating(
                     self._resolve_trades_job,
@@ -132,11 +125,10 @@ class OTCTradingBot:
                     first=15,
                     name="resolve_pending_trades",
                 )
-                logger.info("✅ PTB JobQueue settlement worker also enabled")
             else:
                 logger.warning(
-                    "PTB JobQueue unavailable; native asyncio settlement loop "
-                    "will handle trade settlement."
+                    "JobQueue unavailable (install 'python-telegram-bot[job-queue]') "
+                    "- trade WIN/LOSS results will not auto-post to Telegram."
                 )
 
             logger.info("✅ Bot initialized successfully")
@@ -145,81 +137,6 @@ class OTCTradingBot:
         except Exception as e:
             logger.error("❌ Initialization failed: %s", e)
             raise
-
-    async def _settlement_loop(self) -> None:
-        """Independent settlement worker; does not depend on PTB JobQueue."""
-        while True:
-            try:
-                await asyncio.sleep(15)
-                if not self.application:
-                    continue
-
-                storage = self.application.bot_data.get("storage")
-                api_client = self.application.bot_data.get("api_client")
-                data_fetcher = self.application.bot_data.get("data_fetcher")
-
-                if storage is None or api_client is None:
-                    logger.warning(
-                        "Settlement loop skipped: storage=%s api_client=%s",
-                        storage is not None,
-                        api_client is not None,
-                    )
-                    continue
-
-                closed = await storage.resolve_pending_trades(
-                    api_client,
-                    data_fetcher,
-                )
-
-                if closed:
-                    logger.info("Settlement loop closed %d trade(s)", len(closed))
-
-                for trade in closed:
-                    chat_id = trade.get("chat_id")
-                    if not chat_id:
-                        logger.warning(
-                            "Settled trade %s has no chat_id; cannot notify.",
-                            trade.get("id"),
-                        )
-                        continue
-
-                    result = str(trade.get("result") or "UNKNOWN").upper()
-                    icon = {"WIN": "✅", "LOSS": "❌", "DRAW": "↔️"}.get(
-                        result, "❔"
-                    )
-                    profit = trade.get("profit_loss")
-                    message = (
-                        f"{icon} <b>{result}</b>\n\n"
-                        f"{trade.get('direction')} <b>{trade.get('asset')}</b> "
-                        f"(${float(trade.get('amount') or 0):.2f})"
-                    )
-                    if profit is not None:
-                        message += f"\nP/L: <b>${float(profit):+.2f}</b>"
-
-                    try:
-                        await self.application.bot.send_message(
-                            chat_id=int(chat_id),
-                            text=message,
-                            parse_mode="HTML",
-                        )
-                        logger.info(
-                            "Settlement notification sent: trade=%s chat=%s result=%s",
-                            trade.get("id"),
-                            chat_id,
-                            result,
-                        )
-                    except Exception:
-                        logger.exception(
-                            "Settlement notification failed: trade=%s chat=%s",
-                            trade.get("id"),
-                            chat_id,
-                        )
-
-            except asyncio.CancelledError:
-                logger.info("Native settlement loop cancelled")
-                raise
-            except Exception:
-                logger.exception("Native settlement loop failed; retrying")
 
     async def _resolve_trades_job(self, context) -> None:
         """JobQueue callback: settle due trades and DM the outcome."""
@@ -385,14 +302,6 @@ class OTCTradingBot:
         logger.info("🔄 Shutting down gracefully...")
 
         try:
-            if self._settlement_task is not None:
-                self._settlement_task.cancel()
-                try:
-                    await self._settlement_task
-                except asyncio.CancelledError:
-                    pass
-                self._settlement_task = None
-
             if self.application:
                 if self.application.updater and self.application.updater.running:
                     await self.application.updater.stop()
