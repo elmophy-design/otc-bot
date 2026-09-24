@@ -21,7 +21,36 @@ logger = get_logger(__name__)
 settings = get_settings()
 keyboard_builder = AssetKeyboardBuilder(settings)
 pagination_manager = PaginationManager(settings)
+async def _safe_reply(update: Update, text: str, **kwargs):
+    """
+    Safely respond to any Telegram update.
 
+    Handles normal messages, callback queries, and updates
+    that do not contain a message.
+    """
+    try:
+        message = update.effective_message
+
+        if message is not None:
+            return await message.reply_text(text, **kwargs)
+
+        query = update.callback_query
+
+        if query is not None:
+            return await query.edit_message_text(text, **kwargs)
+
+        logger.warning(
+            "No reply target available for Telegram update_id=%s",
+            getattr(update, "update_id", None),
+        )
+
+    except Exception:
+        logger.exception(
+            "Failed to send Telegram response for update_id=%s",
+            getattr(update, "update_id", None),
+        )
+
+    return None
 # Per-asset signal cooldown (professional anti-spam)
 _signal_cooldown: dict[str, datetime] = {}
 COOLDOWN_MINUTES = 3
