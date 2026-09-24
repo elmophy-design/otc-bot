@@ -416,17 +416,32 @@ class BotV2Client:
         return await self.place_trade(*args, **kwargs)
 
     async def check_win(self, trade_id: str, timeout: Optional[int] = None) -> dict:
+        """Check and normalize the broker settlement for a trade."""
         if not self.is_connected or self._client is None:
             raise RuntimeError("BotV2Client is not connected")
+
         client = self._client
         if not hasattr(client, "check_win"):
             raise AttributeError("Underlying client has no check_win")
+
         res = client.check_win(trade_id)
         if asyncio.iscoroutine(res):
-            res = await asyncio.wait_for(res, timeout=(timeout or 120))
-        if isinstance(res, dict):
-            return res
-        return {"result": res}
+            res = await asyncio.wait_for(
+                res,
+                timeout=(timeout or 120),
+            )
+
+        normalized = self._normalize_settlement(res)
+
+        logger.info(
+            "Trade settlement: trade_id=%s result=%s profit=%s raw_result=%s",
+            trade_id,
+            normalized.get("result"),
+            normalized.get("profit"),
+            normalized.get("raw_result"),
+        )
+
+        return normalized
 
     @staticmethod
     def _normalize_settlement(res: Any) -> dict:
@@ -444,11 +459,15 @@ class BotV2Client:
         REQUIRES_RECONCILIATION.
         """
 
-        payload = (
-            res
-            if isinstance(res, dict)
-            else {"result": res}
-        )
+        if isinstance(res, dict):
+            payload = res
+        elif isinstance(res, bool):
+            payload = {"win": res}
+        elif isinstance(res, (int, float)):
+            # Some broker versions return settlement profit directly.
+            payload = {"profit": float(res)}
+        else:
+            payload = {"result": res}
 
         raw_result = (
             payload.get("result")
