@@ -1,3 +1,0 @@
-# Optional live broker backends
-# Prefer prebuilt wheels from GitHub releases if pip fails.
-BinaryOptionsToolsV2>=0.2.0
