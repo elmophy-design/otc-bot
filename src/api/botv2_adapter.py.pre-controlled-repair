@@ -1,0 +1,919 @@
+
+BinaryOptionsTools-v2 adapter.
+
+Optional live backend. Install with:
+  pip install BinaryOptionsToolsV2
+
+Selected via env:
+  LIVE_BACKEND=auto|botv2|native
+"""
+from __future__ import annotations
+
+import asyncio
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional, Union
+
+import pandas as pd
+
+from ..utils.logger import get_logger
+from .protocol import parse_ssid, timeframe_to_seconds
+
+logger = get_logger(__name__)
+
+_BOTV2_AVAILABLE = False
+_PocketOptionAsync = None
+_import_error: Optional[str] = None
+
+try:
+    from BinaryOptionsToolsV2 import PocketOptionAsync  # type: ignore
+
+    _PocketOptionAsync = PocketOptionAsync
+    _BOTV2_AVAILABLE = True
+except Exception as e1:
+    try:
+        from BinaryOptionsToolsV2.pocketoption import PocketOptionAsync  # type: ignore
+
+        _PocketOptionAsync = PocketOptionAsync
+        _BOTV2_AVAILABLE = True
+    except Exception as e2:
+        _import_error = f"{e1} | {e2}"
+        _BOTV2_AVAILABLE = False
+
+
+def botv2_available() -> bool:
+    return _BOTV2_AVAILABLE
+
+
+def botv2_import_error() -> Optional[str]:
+    return _import_error
+
+
+class BotV2Client:
+    """Adapter for BinaryOptionsToolsV2 PocketOptionAsync."""
+
+    def __init__(self, settings: Any):
+        self.settings = settings
+        self.demo_mode = getattr(settings, "DEMO_MODE", True)
+        self._client: Any = None
+        self._connected = False
+        self._authenticated = False
+        self._ssid_raw = getattr(settings, "POCKETOPTION_SSID", None) or ""
+        self._ssid_for_lib = self._normalize_ssid(self._ssid_raw)
+
+    @staticmethod
+    def _normalize_ssid(raw: str) -> str:
+        raw = (raw or "").strip()
+
+        if not raw:
+            return ""
+
+        try:
+            parsed = parse_ssid(raw)
+
+            if "auth" in raw:
+                return raw
+
+            return parsed.session or raw
+
+        except Exception:
+            return raw
+
+    @property
+    def is_connected(self) -> bool:
+        return self._connected and self._client is not None
+
+    @property
+    def is_authenticated(self) -> bool:
+        return self._authenticated
+
+    async def connect(self) -> bool:
+        if not _BOTV2_AVAILABLE or _PocketOptionAsync is None:
+            logger.warning(
+                "BinaryOptionsToolsV2 not installed (%s)",
+                _import_error,
+            )
+            return False
+
+        if not self._ssid_for_lib:
+            logger.info("No SSID - BotV2Client cannot connect")
+            return False
+
+        try:
+            self._client = _PocketOptionAsync(
+                ssid=self._ssid_for_lib
+            )
+
+            if hasattr(self._client, "connect") and callable(
+                self._client.connect
+            ):
+                res = self._client.connect()
+
+                if asyncio.iscoroutine(res):
+                    await res
+            else:
+                await asyncio.sleep(2.0)
+
+            bal = await self._try_balance()
+
+            self._connected = True
+            self._authenticated = True
+
+            logger.info(
+                "BotV2 connected (balance=%s)",
+                bal if bal is not None else "n/a",
+            )
+
+            return True
+
+        except Exception as e:
+            logger.warning("BotV2 connect failed: %s", e)
+
+            self._client = None
+            self._connected = False
+            self._authenticated = False
+
+            if not self.demo_mode:
+                raise
+
+            return False
+
+    async def _try_balance(self) -> Optional[float]:
+        if self._client is None:
+            return None
+
+        for name in ("balance", "get_balance"):
+            if hasattr(self._client, name):
+                try:
+                    res = getattr(self._client, name)()
+
+                    if asyncio.iscoroutine(res):
+                        res = await res
+
+                    if isinstance(res, (int, float)):
+                        return float(res)
+
+                    if hasattr(res, "balance"):
+                        return float(res.balance)
+
+                    if isinstance(res, dict) and "balance" in res:
+                        return float(res["balance"])
+
+                except Exception as e:
+                    logger.debug(
+                        "balance probe via %s failed: %s",
+                        name,
+                        e,
+                    )
+
+        return None
+
+    async def get_balance(self) -> Optional[float]:
+        return await self._try_balance()
+
+    async def get_candles(
+        self,
+        asset: str,
+        timeframe: Union[str, int] = "1m",
+        count: int = 200,
+        end_time: Optional[int] = None,
+    ) -> pd.DataFrame:
+        if not self.is_connected or self._client is None:
+            return pd.DataFrame()
+
+        period = timeframe_to_seconds(timeframe)
+        raw = await self._fetch_raw_candles(
+            asset,
+            period,
+            count,
+        )
+
+        return self._to_dataframe(raw, count)
+
+    async def _fetch_raw_candles(
+        self,
+        asset: str,
+        period: int,
+        count: int,
+    ) -> List[Any]:
+        client = self._client
+
+        assert client is not None
+
+        min_bars = max(50, min(count, 100))
+        best: List[Any] = []
+
+        def _as_list(res: Any) -> List[Any]:
+            if res is None:
+                return []
+
+            if isinstance(res, dict):
+                return [res]
+
+            if isinstance(res, str):
+                import json
+
+                try:
+                    parsed = json.loads(res)
+
+                    return (
+                        list(parsed)
+                        if isinstance(parsed, (list, tuple))
+                        else [parsed]
+                    )
+
+                except Exception:
+                    return []
+
+            try:
+                return list(res)
+            except Exception:
+                return []
+
+        if hasattr(client, "get_candles"):
+            offsets = [
+                max(count * period, 3600),
+                max(count * period, 7200),
+                max(count * period, 14400),
+                max(count * period, 28800),
+                9000,
+                18000,
+            ]
+
+            seen = set()
+            uniq_offsets = []
+
+            for o in offsets:
+                if o not in seen:
+                    seen.add(o)
+                    uniq_offsets.append(o)
+
+            for offset in uniq_offsets:
+                try:
+                    res = client.get_candles(
+                        asset,
+                        period,
+                        offset,
+                    )
+
+                    if asyncio.iscoroutine(res):
+                        res = await asyncio.wait_for(
+                            res,
+                            timeout=20.0,
+                        )
+
+                    rows = _as_list(res)
+
+                    if len(rows) > len(best):
+                        best = rows
+
+                    if len(best) >= min_bars:
+                        return best
+
+                except Exception as e:
+                    logger.debug(
+                        "get_candles offset=%s failed: %s",
+                        offset,
+                        e,
+                    )
+
+        if hasattr(client, "get_candles_advanced"):
+            import time as _time
+
+            for offset in (
+                max(count * period, 7200),
+                14400,
+                28800,
+            ):
+                try:
+                    res = client.get_candles_advanced(
+                        asset,
+                        period,
+                        offset,
+                        int(_time.time()),
+                    )
+
+                    if asyncio.iscoroutine(res):
+                        res = await asyncio.wait_for(
+                            res,
+                            timeout=20.0,
+                        )
+
+                    rows = _as_list(res)
+
+                    if len(rows) > len(best):
+                        best = rows
+
+                    if len(best) >= min_bars:
+                        return best
+
+                except Exception as e:
+                    logger.debug(
+                        "get_candles_advanced failed: %s",
+                        e,
+                    )
+
+        if hasattr(client, "history"):
+            try:
+                res = client.history(
+                    asset,
+                    period,
+                )
+
+                if asyncio.iscoroutine(res):
+                    res = await asyncio.wait_for(
+                        res,
+                        timeout=20.0,
+                    )
+
+                rows = _as_list(res)
+
+                if len(rows) > len(best):
+                    best = rows
+
+            except Exception as e:
+                logger.debug(
+                    "history failed: %s",
+                    e,
+                )
+
+        if hasattr(client, "candles"):
+            try:
+                res = client.candles(
+                    asset,
+                    period,
+                )
+
+                if asyncio.iscoroutine(res):
+                    res = await asyncio.wait_for(
+                        res,
+                        timeout=20.0,
+                    )
+
+                rows = _as_list(res)
+
+                if len(rows) > len(best):
+                    best = rows
+
+            except Exception as e:
+                logger.debug(
+                    "candles() failed: %s",
+                    e,
+                )
+
+        if hasattr(client, "get_candles_live") and len(best) < min_bars:
+            try:
+                hours = max(
+                    2.0,
+                    (count * period) / 3600.0,
+                )
+
+                gen = client.get_candles_live(
+                    asset,
+                    period=period,
+                    hours=hours,
+                    max_rows=max(count, 100),
+                )
+
+                if asyncio.iscoroutine(gen):
+                    gen = await gen
+
+                async for closed, _forming in gen:
+                    rows = _as_list(closed)
+
+                    if len(rows) > len(best):
+                        best = rows
+
+                    break
+
+            except Exception as e:
+                logger.debug(
+                    "get_candles_live failed: %s",
+                    e,
+                )
+
+        if best:
+            logger.info(
+                "Candle fetch for %s period=%ss: %d rows (target >=%d)",
+                asset,
+                period,
+                len(best),
+                min_bars,
+            )
+        else:
+            logger.warning(
+                "Candle fetch for %s returned 0 rows",
+                asset,
+            )
+
+        return best
+
+    @staticmethod
+    def _to_dataframe(
+        raw: List[Any],
+        count: int,
+    ) -> pd.DataFrame:
+        if not raw:
+            return pd.DataFrame(
+                columns=[
+                    "timestamp",
+                    "open",
+                    "high",
+                    "low",
+                    "close",
+                    "volume",
+                ]
+            )
+
+        rows = []
+
+        for c in raw:
+            if isinstance(c, (list, tuple)) and len(c) >= 5:
+                ts, o, cl, h, l = (
+                    c[0],
+                    c[1],
+                    c[2],
+                    c[3],
+                    c[4],
+                )
+
+                v = c[5] if len(c) > 5 else 0
+
+            elif isinstance(c, dict):
+                ts = (
+                    c.get("time")
+                    or c.get("timestamp")
+                    or c.get("t")
+                )
+
+                o = c.get("open", c.get("o"))
+                h = c.get("high", c.get("h"))
+                l = c.get("low", c.get("l"))
+                cl = c.get("close", c.get("c"))
+                v = c.get("volume", c.get("v", 0))
+
+            else:
+                continue
+
+            try:
+                ts_f = float(ts)
+
+                if ts_f > 1e12:
+                    ts_f /= 1000.0
+
+                dt = datetime.fromtimestamp(
+                    ts_f,
+                    tz=timezone.utc,
+                )
+
+            except Exception:
+                dt = datetime.now(timezone.utc)
+
+            try:
+                rows.append(
+                    {
+                        "timestamp": dt,
+                        "open": float(o),
+                        "high": float(h),
+                        "low": float(l),
+                        "close": float(cl),
+                        "volume": float(v or 0),
+                    }
+                )
+
+            except Exception:
+                continue
+
+        if not rows:
+            return pd.DataFrame(
+                columns=[
+                    "timestamp",
+                    "open",
+                    "high",
+                    "low",
+                    "close",
+                    "volume",
+                ]
+            )
+
+        df = pd.DataFrame(rows)
+
+        df = (
+            df.sort_values("timestamp")
+            .drop_duplicates(
+                subset=["timestamp"],
+                keep="last",
+            )
+        )
+
+        if len(df) > count:
+            df = df.iloc[-count:]
+
+        return df.reset_index(drop=True)
+
+    async def place_trade(
+        self,
+        asset: str,
+        direction: str,
+        amount: float,
+        duration: int = 60,
+    ) -> dict:
+        """Place a binary trade."""
+
+        if not self.is_connected or self._client is None:
+            return {
+                "success": False,
+                "ok": False,
+                "trade_id": None,
+                "order_id": None,
+                "error": "BotV2Client is not connected",
+                "asset": asset,
+                "direction": (direction or "").upper(),
+                "amount": float(amount),
+                "duration": int(duration),
+            }
+
+        direction_l = (direction or "").strip().lower()
+
+        if direction_l in ("call", "buy", "up"):
+            method_name = "buy"
+
+        elif direction_l in ("put", "sell", "down"):
+            method_name = "sell"
+
+        else:
+            return {
+                "success": False,
+                "ok": False,
+                "trade_id": None,
+                "order_id": None,
+                "error": f"Invalid direction: {direction}",
+                "asset": asset,
+                "direction": (direction or "").upper(),
+                "amount": float(amount),
+                "duration": int(duration),
+            }
+
+        client = self._client
+        method = getattr(
+            client,
+            method_name,
+            None,
+        )
+
+        if method is None:
+            return {
+                "success": False,
+                "ok": False,
+                "trade_id": None,
+                "order_id": None,
+                "error": (
+                    f"Underlying client has no "
+                    f"'{method_name}' method"
+                ),
+                "asset": asset,
+                "direction": direction_l.upper(),
+                "amount": float(amount),
+                "duration": int(duration),
+            }
+
+        try:
+            res = method(
+                asset,
+                float(amount),
+                int(duration),
+            )
+
+            if asyncio.iscoroutine(res):
+                res = await asyncio.wait_for(
+                    res,
+                    timeout=30.0,
+                )
+
+        except Exception as e:
+            logger.exception(
+                "place_trade failed for %s %s",
+                asset,
+                direction_l,
+            )
+
+            return {
+                "success": False,
+                "ok": False,
+                "trade_id": None,
+                "order_id": None,
+                "error": str(e) or repr(e),
+                "asset": asset,
+                "direction": direction_l.upper(),
+                "amount": float(amount),
+                "duration": int(duration),
+            }
+
+        trade_id = None
+        deal = res
+
+        if isinstance(res, (tuple, list)) and len(res) >= 1:
+            trade_id = res[0]
+            deal = res[1] if len(res) > 1 else res[0]
+
+        elif isinstance(res, dict):
+            trade_id = (
+                res.get("id")
+                or res.get("trade_id")
+                or res.get("order_id")
+            )
+
+        logger.info(
+            "Trade placed: asset=%s dir=%s amount=%s duration=%ss id=%s",
+            asset,
+            direction_l,
+            amount,
+            duration,
+            trade_id,
+        )
+
+        return {
+            "success": True,
+            "ok": True,
+            "trade_id": (
+                str(trade_id)
+                if trade_id is not None
+                else None
+            ),
+            "order_id": (
+                str(trade_id)
+                if trade_id is not None
+                else None
+            ),
+            "deal": deal,
+            "asset": asset,
+            "direction": direction_l.upper(),
+            "amount": float(amount),
+            "duration": int(duration),
+            "error": None,
+        }
+
+    async def place_order(self, *args, **kwargs):
+        return await self.place_trade(*args, **kwargs)
+
+    async def open_trade(self, *args, **kwargs):
+        return await self.place_trade(*args, **kwargs)
+
+    @staticmethod
+    def _normalize_settlement(res: Any) -> dict:
+        """Normalize BinaryOptionsToolsV2 v0.2.14 settlement data.
+
+        BinaryOptionsToolsV2 v0.2.14 internally classifies the trade
+        using the broker's profit value:
+
+            profit > 0  -> win
+            profit == 0 -> draw
+            profit < 0  -> loss
+
+        The adapter accepts an explicit result, but when profit is
+        available it verifies that both pieces of evidence agree.
+
+        Contradictory evidence is NEVER silently converted into WIN
+        or LOSS. Such a trade is marked for reconciliation.
+        """
+
+        payload = (
+            res
+            if isinstance(res, dict)
+            else {"result": res}
+        )
+
+        raw_result = payload.get("result")
+
+        result_text = str(
+            raw_result or ""
+        ).strip().upper()
+
+        normalized_result = result_text.replace(
+            "_",
+            " ",
+        ).replace(
+            "-",
+            " ",
+        )
+
+        aliases = {
+            "WIN": "WIN",
+            "WON": "WIN",
+            "PROFIT": "WIN",
+            "SUCCESS": "WIN",
+            "ITM": "WIN",
+
+            "LOSS": "LOSS",
+            "LOST": "LOSS",
+            "LOSE": "LOSS",
+            "FAILED": "LOSS",
+            "FAIL": "LOSS",
+            "OTM": "LOSS",
+
+            "DRAW": "DRAW",
+            "TIE": "DRAW",
+            "REFUND": "DRAW",
+            "PUSH": "DRAW",
+            "RETURN": "DRAW",
+        }
+
+        normalized_result = aliases.get(
+            normalized_result
+        )
+
+        profit = payload.get(
+            "profit",
+            payload.get("net_profit"),
+        )
+
+        numeric_profit: Optional[float] = None
+
+        if (
+            isinstance(profit, (int, float))
+            and not isinstance(profit, bool)
+        ):
+            numeric_profit = float(profit)
+
+        # Verify explicit result against the actual profit semantics
+        # used by BinaryOptionsToolsV2 v0.2.14.
+        if (
+            normalized_result in {
+                "WIN",
+                "LOSS",
+                "DRAW",
+            }
+            and numeric_profit is not None
+        ):
+            if numeric_profit > 0:
+                expected_result = "WIN"
+
+            elif numeric_profit < 0:
+                expected_result = "LOSS"
+
+            else:
+                expected_result = "DRAW"
+
+            if normalized_result != expected_result:
+                logger.error(
+                    "Broker settlement contradiction: "
+                    "result=%s profit=%s expected=%s payload=%r",
+                    normalized_result,
+                    numeric_profit,
+                    expected_result,
+                    payload,
+                )
+
+                return {
+                    "result": "REQUIRES_RECONCILIATION",
+                    "raw_result": raw_result,
+                    "profit": numeric_profit,
+                    "raw": payload,
+                    "settlement_conflict": True,
+                    "expected_result": expected_result,
+                }
+
+        # Explicit valid broker result.
+        if normalized_result in {
+            "WIN",
+            "LOSS",
+            "DRAW",
+        }:
+            return {
+                "result": normalized_result,
+                "raw_result": raw_result,
+                "profit": numeric_profit,
+                "raw": payload,
+            }
+
+        # BinaryOptionsToolsV2 v0.2.14 guarantees that its returned
+        # profit is used to classify the trade. Therefore, when result
+        # is absent but profit is present, using that exact documented
+        # classification is safe.
+        if numeric_profit is not None:
+            if numeric_profit > 0:
+                inferred = "WIN"
+
+            elif numeric_profit < 0:
+                inferred = "LOSS"
+
+            else:
+                inferred = "DRAW"
+
+            return {
+                "result": inferred,
+                "raw_result": None,
+                "profit": numeric_profit,
+                "raw": payload,
+                "settlement_source": (
+                    "binaryoptions_profit"
+                ),
+            }
+
+        # No authoritative settlement evidence.
+        return {
+            "result": "UNKNOWN",
+            "raw": payload,
+        }
+
+    async def check_win(
+        self,
+        trade_id: str,
+        timeout: Optional[int] = None,
+    ) -> dict:
+        """Get the authoritative BinaryOptionsToolsV2 settlement."""
+
+        if not self.is_connected or self._client is None:
+            raise RuntimeError(
+                "BotV2Client is not connected"
+            )
+
+        client = self._client
+
+        if not hasattr(client, "check_win"):
+            raise AttributeError(
+                "Underlying client has no check_win"
+            )
+
+        # BinaryOptionsToolsV2 v0.2.14 uses:
+        # check_win(id, timeout_seconds=None)
+        timeout_seconds = (
+            int(timeout)
+            if timeout is not None
+            else 120
+        )
+
+        try:
+            res = client.check_win(
+                trade_id,
+                timeout_seconds=timeout_seconds,
+            )
+
+            if asyncio.iscoroutine(res):
+                res = await asyncio.wait_for(
+                    res,
+                    timeout=timeout_seconds + 5,
+                )
+
+        except asyncio.TimeoutError:
+            logger.warning(
+                "Settlement timeout for trade %s",
+                trade_id,
+            )
+            raise TimeoutError(
+                f"Timeout waiting for trade result "
+                f"for ID: {trade_id}"
+            )
+
+        except Exception:
+            logger.exception(
+                "check_win failed for trade %s",
+                trade_id,
+            )
+            raise
+
+        normalized = self._normalize_settlement(res)
+
+        # Preserve the complete broker response for diagnostics.
+        if isinstance(res, dict):
+            normalized["broker_payload"] = res
+
+        logger.info(
+            "Trade settlement: id=%s result=%s profit=%s",
+            trade_id,
+            normalized.get("result"),
+            normalized.get("profit"),
+        )
+
+        return normalized
+
+    async def disconnect(self) -> None:
+        self._connected = False
+        self._authenticated = False
+
+        if self._client is not None:
+            for name in (
+                "disconnect",
+                "close",
+                "shutdown",
+            ):
+                if hasattr(self._client, name):
+                    try:
+                        res = getattr(
+                            self._client,
+                            name,
+                        )()
+
+                        if asyncio.iscoroutine(res):
+                            await res
+
+                    except Exception:
+                        pass
+
+                    break
+
+        self._client = None
+
+        logger.info("BotV2 disconnected")
+
+    async def close(self) -> None:
+        await self.disconnect()

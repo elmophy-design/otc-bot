@@ -1019,3 +1019,187 @@ BinaryOptionsToolsV2.PocketOptionError: PocketOptionError, Invalid asset: Asset 
 2026-09-11 20:56:56 - src.api.client - WARNING - Live connection failed; continuing in demo mode (server rejected WebSocket connection: HTTP 403)
 2026-09-11 20:56:56 - src.api.data_fetcher - INFO - Using demo OHLCV for EURUSD_otc (1m, n=50)
 2026-09-11 20:56:56 - src.api.client - INFO - Disconnected from PocketOption
+2026-09-24 03:43:25 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-0\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:26 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-0\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:26 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-0\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:28 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-1\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:29 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-1\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:30 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-1\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:53 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-2\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:54 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-2\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:43:54 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-2\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:48:40 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-3\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:48:42 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-3\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:48:42 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-3\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 03:50:30 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 03:50:30 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 03:50:30 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 03:50:30 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:01:28 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 04:01:28 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 04:01:28 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 04:01:28 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:04:57 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 04:04:57 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 04:04:57 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 04:04:57 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:04:58 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:05:00 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:05:01 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:05:03 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:05:04 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 04:05:04 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 04:05:04 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:05:04 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 04:05:05 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 04:05:05 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-4\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:14 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 04:32:14 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 04:32:14 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 04:32:14 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:32:21 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:24 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:24 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:27 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:27 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 04:32:27 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 04:32:27 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:32:28 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 04:32:28 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 04:32:28 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-5\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:51 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 04:53:51 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 04:53:51 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 04:53:51 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:53:52 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:53 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:54 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:56 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:56 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 04:53:56 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 04:53:57 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:53:57 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 04:53:57 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 04:53:57 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-6\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:46 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 04:57:46 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 04:57:46 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 04:57:46 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 04:57:47 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:48 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:49 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:50 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:50 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 04:57:51 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 04:57:51 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 04:57:51 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 04:57:51 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 04:57:51 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-7\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 05:07:54 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-8\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:07:55 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-8\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:07:55 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-8\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:13:07 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-9\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:13:10 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-9\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:13:10 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-9\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:15:44 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-10\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:15:46 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-10\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:15:46 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-10\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:35:53 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-11\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:35:55 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-11\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:35:56 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-11\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 05:36:38 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 05:36:38 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 05:36:38 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 05:36:38 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 06:01:38 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 06:01:38 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 06:01:38 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 06:01:38 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 06:01:40 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:42 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:42 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:43 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:44 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:44 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:46 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:46 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 06:01:46 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 06:01:46 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:01:46 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 06:01:47 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 06:01:47 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-12\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 06:05:50 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-13\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 06:05:51 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-13\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 06:05:52 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-13\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:49:37 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-14\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:49:39 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-14\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:49:41 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-14\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:50:04 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 11:50:04 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 11:50:04 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 11:50:04 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 11:50:05 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:08 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:08 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:10 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:11 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:12 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:13 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:14 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 11:50:14 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 11:50:14 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:50:15 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 11:50:15 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 11:50:15 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-15\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:51:39 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-16\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:51:40 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-16\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:51:40 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-16\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 11:53:27 - src.signals.strategies - INFO - Registered strategy: rsi
+2026-09-24 11:53:27 - src.signals.strategies - INFO - Registered strategy: macd
+2026-09-24 11:53:27 - src.signals.strategies - INFO - Registered strategy: bollinger
+2026-09-24 11:53:27 - src.signals.strategies - INFO - Registered strategy: pine
+2026-09-24 11:53:28 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:30 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:30 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:31 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:31 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:32 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:33 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:33 - src.data.storage - INFO - Saved signal for user 42 asset EURUSD_otc action=CALL
+2026-09-24 11:53:33 - src.data.storage - INFO - Saved signal for user 42 asset GBPUSD_otc action=PUT
+2026-09-24 11:53:33 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 11:53:34 - src.data.storage - INFO - Saved signal for user 88 asset EURUSD_otc action=CALL
+2026-09-24 11:53:34 - src.data.storage - INFO - Saved signal for user 88 asset GBPUSD_otc action=PUT
+2026-09-24 11:53:34 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-17\test_report_counts_and_win_rat0\reporting.db
+2026-09-24 13:28:23 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:28:24 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:28:25 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:28:26 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:28:27 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:28:28 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-18\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:02 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:03 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:04 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:05 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:06 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:36:06 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-19\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:48:56 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:48:57 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:48:58 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:48:58 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:49:00 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 13:49:00 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-20\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:05:59 - src.data.storage - ERROR - Broker settlement contradiction for trade 1 order=ORDER-WIN_NEGATIVE_CONFLICT raw_result=WIN profit=-10
+2026-09-24 14:25:22 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:25:23 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:25:24 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:25:25 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:25:26 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:25:27 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-21\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:32 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:34 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:36 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:37 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:40 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:41 - src.models.database - INFO - Database initialized: sqlite:///C:\Users\Acer\AppData\Local\Temp\pytest-of-Acer\pytest-22\test_broker_loss_is_recorded_a0\settlement_loss.db
+2026-09-24 14:35:43 - src.api.botv2_adapter - INFO - Trade placed: asset=EURUSD dir=call amount=10.0 duration=60s id=BROKER-TRADE-123

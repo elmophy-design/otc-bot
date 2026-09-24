@@ -566,18 +566,15 @@ async def expiry_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     mode_note = "🧪 DEMO" if demo else "🔴 LIVE"
-    order_id = result.get("order_id")
+    order_id = result.get("order_id") or result.get("trade_id")
 
     user_id = query.from_user.id if query.from_user else 0
     chat_id = query.message.chat_id if query.message else user_id
     storage = context.bot_data.get("storage") or DataStorage()
     if user_id:
-        # Save even when the broker didn't hand back a parseable order_id —
-        # resolve_pending_trades() falls back to comparing our own candle
-        # close price at expiry in that case, so we still get a WIN/LOSS.
-        # Previously this was skipped whenever order_id was missing, which
-        # silently dropped trades from tracking and meant results never
-        # posted back to Telegram.
+        # Save the trade even if the broker does not return a parseable order ID.
+        # The settlement worker requires an authoritative broker ID/result and
+        # will preserve unresolved trades for reconciliation rather than guessing.
         storage.save_trade(
             user_id=user_id,
             chat_id=chat_id,
@@ -844,3 +841,5 @@ async def admin_logs_callback(update: Update, context: ContextTypes.DEFAULT_TYPE
         parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
+
+
