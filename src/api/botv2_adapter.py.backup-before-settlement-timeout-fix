@@ -458,12 +458,12 @@ class BotV2Client:
         if not hasattr(client, "check_win"):
             raise AttributeError("Underlying client has no check_win")
 
-        # PocketOptionAsync.check_win() already manages its own broker-side
-        # timeout. Do not wrap it in a second asyncio.wait_for(), because
-        # outer cancellation can interrupt the library's internal request.
         res = client.check_win(trade_id)
         if asyncio.iscoroutine(res):
-            res = await res
+            res = await asyncio.wait_for(
+                res,
+                timeout=(timeout or 120),
+            )
 
         normalized = self._normalize_settlement(res)
 
