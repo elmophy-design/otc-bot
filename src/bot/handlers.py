@@ -216,7 +216,7 @@ async def admin_dashboard_command(update: Update, context: ContextTypes.DEFAULT_
         [InlineKeyboardButton("🏠 Main Menu", callback_data="main_menu")],
     ]
 
-    await update.message.reply_text(
+   await _safe_reply(update, ...)
         "\n".join(lines),
         parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(keyboard),
