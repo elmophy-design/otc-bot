@@ -168,17 +168,6 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 
-async def analytics_inline_callback(
-    update: Update,
-    context: ContextTypes.DEFAULT_TYPE,
-):
-    # Callback wrapper for the My Analytics button.
-    query = update.callback_query
-    if query is not None:
-        await query.answer()
-    await analytics_command(update, context)
-
-
 def _period_bounds(kind: str):
     """Return UTC-naive bounds for the requested Africa/Lagos period."""
     tz = ZoneInfo("Africa/Lagos")
