@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import asyncio
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ContextTypes
@@ -115,6 +116,33 @@ async def analytics_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.callback_query.edit_message_text("\n".join(lines), parse_mode="HTML")
     else:
         await update.message.reply_text("\n".join(lines), parse_mode="HTML")
+
+
+def _period_bounds(kind: str):
+    tz=ZoneInfo("Africa/Lagos"); now=datetime.now(tz)
+    if kind=="daily": start=now.replace(hour=0,minute=0,second=0,microsecond=0); label="Today"
+    elif kind=="weekly":
+        start=(now-timedelta(days=now.weekday())).replace(hour=0,minute=0,second=0,microsecond=0); label="This Week"
+    else:
+        start=now.replace(day=1,hour=0,minute=0,second=0,microsecond=0); label="This Month"
+    end=now
+    return start.astimezone(timezone.utc).replace(tzinfo=None), end.astimezone(timezone.utc).replace(tzinfo=None), label
+
+async def _period_report(update, context, kind):
+    user=update.effective_user
+    if user is None: return
+    storage=context.bot_data.get("storage") or DataStorage()
+    start,end,label=_period_bounds(kind)
+    r=storage.get_trade_report(start,end,user_id=user.id)
+    lines=[f"📊 <b>{label} Trading Report</b>","",f"Trades: <b>{r['total']}</b>",f"Settled: <b>{r['settled']}</b>",f"Wins: <b>{r['wins']}</b> | Losses: <b>{r['losses']}</b> | Draws: <b>{r['draws']}</b>",f"Win rate: <b>{r['win_rate']:.2f}%</b>",f"Pending: <b>{r['pending']}</b> | Unresolved: <b>{r['unresolved']}</b>","",f"Stake: <b>{r['stake']:.2f}</b>",f"Payout: <b>{r['payout']:.2f}</b>",f"Net P/L: <b>{r['net_pl']:.2f}</b>","",f"CALL: {r['call']['wins']}/{r['call']['total']} wins",f"PUT: {r['put']['wins']}/{r['put']['total']} wins"]
+    if r['by_asset']:
+        lines += ["","<b>By asset</b>"]+[f"• {a}: {v['wins']}W/{v['losses']}L | P/L {v['net_pl']:.2f}" for a,v in sorted(r['by_asset'].items())]
+    if kind=="weekly": lines += ["","<i>Week: Monday 00:00 through Sunday/current time, Africa/Lagos.</i>"]
+    await (update.message.reply_text if update.message else update.callback_query.edit_message_text)("\n".join(lines),parse_mode="HTML")
+
+async def daily_report_command(update, context): await _period_report(update,context,"daily")
+async def weekly_report_command(update, context): await _period_report(update,context,"weekly")
+async def monthly_report_command(update, context): await _period_report(update,context,"monthly")
 
 
 async def analytics_inline_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):

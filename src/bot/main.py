@@ -26,6 +26,9 @@ from .handlers import (
     admin_users_callback,
     analytics_command,
     analytics_inline_callback,
+    daily_report_command,
+    weekly_report_command,
+    monthly_report_command,
     broadcast_command,
     category_callback,
     help_command,
@@ -166,6 +169,9 @@ class OTCTradingBot:
         self.application.add_handler(CommandHandler("start", start_command))
         self.application.add_handler(CommandHandler("help", help_command))
         self.application.add_handler(CommandHandler("analytics", analytics_command))
+        self.application.add_handler(CommandHandler("daily", daily_report_command))
+        self.application.add_handler(CommandHandler("weekly", weekly_report_command))
+        self.application.add_handler(CommandHandler("monthly", monthly_report_command))
         self.application.add_handler(CommandHandler("admin", admin_dashboard_command))
         self.application.add_handler(CommandHandler("broadcast", broadcast_command))
         self.application.add_handler(

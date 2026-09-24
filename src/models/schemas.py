@@ -1,4 +1,4 @@
-﻿"""Database Schemas"""
+"""Database Schemas"""
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Float, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
@@ -52,7 +52,12 @@ class TradeHistory(Base):
     entry_price = Column(Float, nullable=True)
     placed_at = Column(DateTime, default=datetime.utcnow)
     expiry_at = Column(DateTime, nullable=True)
-    result = Column(String(10), default="PENDING")  # PENDING | WIN | LOSS | DRAW | UNKNOWN
+    result = Column(String(24), default="PENDING")  # PENDING | SETTLING | WIN | LOSS | DRAW | UNKNOWN | REQUIRES_RECONCILIATION
     payout = Column(Float, nullable=True)
+    profit_loss = Column(Float, nullable=True)
+    broker_result = Column(String(100), nullable=True)
+    settlement_source = Column(String(50), nullable=True)
+    settlement_attempts = Column(Integer, default=0)
+    last_settlement_at = Column(DateTime, nullable=True)
     closed_at = Column(DateTime, nullable=True)
     notified = Column(Integer, default=0)  # 0/1 - has the Telegram push been sent
