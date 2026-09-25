@@ -219,6 +219,52 @@ class DataStorage:
             logger.exception("Failed to save trade for user %s asset %s", user_id, asset)
             return None
 
+    def get_unnotified_settlements(self, limit: int = 100) -> List[Dict[str, Any]]:
+        """Return terminal trade results that still need Telegram delivery."""
+        session = self.db.get_session()
+        try:
+            rows = (
+                session.query(TradeHistory)
+                .filter(TradeHistory.result.in_(("WIN", "LOSS", "DRAW")))
+                .filter(TradeHistory.notified == 0)
+                .order_by(TradeHistory.closed_at.asc(), TradeHistory.id.asc())
+                .limit(limit)
+                .all()
+            )
+            return [
+                {
+                    "id": row.id,
+                    "telegram_id": row.telegram_id,
+                    "chat_id": row.chat_id,
+                    "asset": row.asset,
+                    "direction": row.direction,
+                    "amount": row.amount,
+                    "result": row.result,
+                    "order_id": row.order_id,
+                    "profit_loss": row.profit_loss,
+                }
+                for row in rows
+            ]
+        finally:
+            session.close()
+
+    def mark_trade_notified(self, trade_id: int) -> bool:
+        """Mark a settled trade as successfully delivered to Telegram."""
+        session = self.db.get_session()
+        try:
+            row = session.query(TradeHistory).filter(TradeHistory.id == trade_id).one_or_none()
+            if row is None:
+                return False
+            row.notified = 1
+            session.commit()
+            return True
+        except Exception:
+            session.rollback()
+            logger.exception("Failed to mark trade %s as notified", trade_id)
+            return False
+        finally:
+            session.close()
+
     async def resolve_pending_trades(
         self,
         api_client: Any,
@@ -313,7 +359,7 @@ class DataStorage:
                     )
                     res = await api_client.check_win(
                         row.order_id,
-                        timeout=20,
+                        timeout=30,
                     )
                     logger.info(
                         "Broker settlement response: trade=%s order=%s response=%r",
@@ -440,6 +486,18 @@ class DataStorage:
                     # unresolved rather than being guessed.
                     row.result = "PENDING"
                     row.settlement_source = "broker_unrecognized"
+
+                except TimeoutError:
+                    # A broker-side timeout means the result was not available
+                    # during this check window. Keep the trade pending and let
+                    # the next single settlement pass retry it.
+                    logger.info(
+                        "Broker settlement timed out: trade=%s order=%s; retrying later",
+                        row.id,
+                        row.order_id,
+                    )
+                    row.result = "PENDING"
+                    row.settlement_source = "broker_timeout_retry"
 
                 except Exception:
                     logger.exception(
