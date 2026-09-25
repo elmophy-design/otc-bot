@@ -449,21 +449,198 @@ class BotV2Client:
     async def open_trade(self, *args, **kwargs):
         return await self.place_trade(*args, **kwargs)
 
+    async def _reconnect_existing_client(self) -> bool:
+        """Reconnect the existing PocketOption client after a broken channel."""
+        client = self._client
+        if client is None:
+            return False
+
+        reconnect = getattr(client, "reconnect", None)
+        if callable(reconnect):
+            try:
+                result = reconnect()
+                if asyncio.iscoroutine(result):
+                    await result
+                self._connected = True
+                self._authenticated = True
+                logger.info("✅ BotV2 channel reconnected")
+                return True
+            except Exception:
+                logger.exception("BotV2 reconnect() failed")
+
+        # Older library builds may not expose reconnect(). Recreate the
+        # client cleanly as a last resort. This is only used for connection
+        # failures, never for an ordinary settlement timeout.
+        try:
+            await self.disconnect()
+            return await self.connect()
+        except Exception:
+            logger.exception("BotV2 client recreation failed")
+            return False
+
+    async def _lookup_closed_trade(self, trade_id: str) -> Optional[Any]:
+        """Try the broker's closed-deal cache when check_win times out."""
+        client = self._client
+        if client is None:
+            return None
+
+        # Newer BinaryOptionsToolsV2 exposes get_closed_deal(id).
+        getter = getattr(client, "get_closed_deal", None)
+        if callable(getter):
+            try:
+                result = getter(trade_id)
+                if asyncio.iscoroutine(result):
+                    result = await result
+                if result:
+                    return result
+            except Exception as exc:
+                logger.debug("get_closed_deal(%s) failed: %s", trade_id, exc)
+
+        # Fall back to closed_deals() for versions that expose the list.
+        lister = getattr(client, "closed_deals", None)
+        if not callable(lister):
+            return None
+
+        try:
+            closed = lister()
+            if asyncio.iscoroutine(closed):
+                closed = await closed
+
+            if not closed:
+                return None
+
+            if isinstance(closed, dict):
+                closed_items = list(closed.values())
+            else:
+                closed_items = list(closed)
+
+            for item in closed_items:
+                if isinstance(item, dict):
+                    item_id = (
+                        item.get("id")
+                        or item.get("trade_id")
+                        or item.get("deal_id")
+                        or item.get("order_id")
+                    )
+                    if str(item_id) == str(trade_id):
+                        return item
+                elif str(item) == str(trade_id) and callable(getter):
+                    result = getter(trade_id)
+                    if asyncio.iscoroutine(result):
+                        result = await result
+                    return result
+        except Exception as exc:
+            logger.debug("closed_deals lookup for %s failed: %s", trade_id, exc)
+
+        return None
+
+    async def _call_check_win(self, trade_id: str, timeout: Optional[int]) -> Any:
+        """Call check_win while remaining compatible with older/newer builds."""
+        client = self._client
+        if client is None:
+            raise RuntimeError("BotV2Client is not connected")
+
+        method = getattr(client, "check_win", None)
+        if not callable(method):
+            raise AttributeError("Underlying client has no check_win")
+
+        try:
+            if timeout is None:
+                result = method(trade_id)
+            else:
+                # BinaryOptionsToolsV2 exposes timeout_seconds on current
+                # async clients. Pass the value instead of wrapping the call
+                # in another asyncio.wait_for().
+                result = method(trade_id, timeout_seconds=int(timeout))
+        except TypeError:
+            # Compatibility with older builds whose check_win() accepts only
+            # the trade ID.
+            result = method(trade_id)
+
+        if asyncio.iscoroutine(result):
+            result = await result
+        return result
+
     async def check_win(self, trade_id: str, timeout: Optional[int] = None) -> dict:
-        """Check and normalize the broker settlement for a trade."""
+        """Check and normalize broker settlement without killing the worker.
+
+        A timeout is treated as an unresolved trade, not as a failed trade.
+        We first consult the broker's closed-deal cache, then return UNKNOWN
+        so the storage worker can retry later. Connection/channel errors get
+        one reconnect-and-retry attempt.
+        """
         if not self.is_connected or self._client is None:
             raise RuntimeError("BotV2Client is not connected")
 
-        client = self._client
-        if not hasattr(client, "check_win"):
-            raise AttributeError("Underlying client has no check_win")
+        effective_timeout = int(timeout or 30)
 
-        # PocketOptionAsync.check_win() already manages its own broker-side
-        # timeout. Do not wrap it in a second asyncio.wait_for(), because
-        # outer cancellation can interrupt the library's internal request.
-        res = client.check_win(trade_id)
-        if asyncio.iscoroutine(res):
-            res = await res
+        try:
+            res = await self._call_check_win(trade_id, effective_timeout)
+        except (asyncio.TimeoutError, TimeoutError) as exc:
+            logger.info(
+                "Broker check_win timed out for trade=%s after %ss; checking closed deals",
+                trade_id,
+                effective_timeout,
+            )
+            closed = await self._lookup_closed_trade(trade_id)
+            if closed is not None:
+                normalized = self._normalize_settlement(closed)
+                if normalized.get("result") != "UNKNOWN":
+                    logger.info(
+                        "Recovered settlement from closed deals: trade_id=%s result=%s profit=%s",
+                        trade_id,
+                        normalized.get("result"),
+                        normalized.get("profit"),
+                    )
+                    return normalized
+
+            return {
+                "result": "UNKNOWN",
+                "raw_result": "TIMEOUT",
+                "profit": None,
+                "settlement_conflict": False,
+                "raw": {"error": str(exc)},
+            }
+        except Exception as exc:
+            message = str(exc).lower()
+            channel_error = any(
+                marker in message
+                for marker in (
+                    "half closed channel",
+                    "channel sender",
+                    "channel receiver",
+                    "websocket",
+                    "connection closed",
+                    "connection reset",
+                    "broken pipe",
+                )
+            )
+            if not channel_error:
+                raise
+
+            logger.warning(
+                "PocketOption channel error for trade=%s: %s; reconnecting once",
+                trade_id,
+                exc,
+            )
+            if not await self._reconnect_existing_client():
+                raise
+
+            # Retry once after reconnection. Do not recursively retry.
+            try:
+                res = await self._call_check_win(trade_id, effective_timeout)
+            except (asyncio.TimeoutError, TimeoutError) as retry_exc:
+                logger.info(
+                    "Broker check_win still timed out after reconnect: trade=%s",
+                    trade_id,
+                )
+                return {
+                    "result": "UNKNOWN",
+                    "raw_result": "TIMEOUT_AFTER_RECONNECT",
+                    "profit": None,
+                    "settlement_conflict": False,
+                    "raw": {"error": str(retry_exc)},
+                }
 
         normalized = self._normalize_settlement(res)
 
