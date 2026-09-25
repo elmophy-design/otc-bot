@@ -125,19 +125,13 @@ class OTCTradingBot:
                 )
                 logger.info("✅ Native settlement loop started (15s interval)")
 
-            if self.application.job_queue is not None:
-                self.application.job_queue.run_repeating(
-                    self._resolve_trades_job,
-                    interval=15,
-                    first=15,
-                    name="resolve_pending_trades",
-                )
-                logger.info("✅ PTB JobQueue settlement worker also enabled")
-            else:
-                logger.warning(
-                    "PTB JobQueue unavailable; native asyncio settlement loop "
-                    "will handle trade settlement."
-                )
+            # IMPORTANT: Do not register a second settlement worker with
+            # python-telegram-bot JobQueue. The native asyncio worker above is
+            # the single owner of settlement. Running both workers caused the
+            # same broker trade to be checked concurrently and produced:
+            #   maximum number of running instances reached (1)
+            # and PocketOption half-closed channel errors.
+            logger.info("✅ Native settlement loop is the only settlement worker")
 
             logger.info("✅ Bot initialized successfully")
             return self.application
@@ -174,7 +168,13 @@ class OTCTradingBot:
                 if closed:
                     logger.info("Settlement loop closed %d trade(s)", len(closed))
 
-                for trade in closed:
+                # Notifications are driven by the DB's `notified` flag, not
+                # only by the current resolver result. This means a Telegram
+                # send failure can be retried on the next loop instead of
+                # permanently losing the WIN/LOSS notification.
+                pending_notifications = storage.get_unnotified_settlements(limit=100)
+
+                for trade in pending_notifications:
                     chat_id = trade.get("chat_id")
                     if not chat_id:
                         logger.warning(
@@ -202,6 +202,7 @@ class OTCTradingBot:
                             text=message,
                             parse_mode="HTML",
                         )
+                        storage.mark_trade_notified(int(trade["id"]))
                         logger.info(
                             "Settlement notification sent: trade=%s chat=%s result=%s",
                             trade.get("id"),
@@ -210,7 +211,7 @@ class OTCTradingBot:
                         )
                     except Exception:
                         logger.exception(
-                            "Settlement notification failed: trade=%s chat=%s",
+                            "Settlement notification failed: trade=%s chat=%s; will retry",
                             trade.get("id"),
                             chat_id,
                         )
@@ -220,35 +221,6 @@ class OTCTradingBot:
                 raise
             except Exception:
                 logger.exception("Native settlement loop failed; retrying")
-
-    async def _resolve_trades_job(self, context) -> None:
-        """JobQueue callback: settle due trades and DM the outcome."""
-        try:
-            storage = self.application.bot_data.get("storage")
-            api_client = self.application.bot_data.get("api_client")
-            data_fetcher = self.application.bot_data.get("data_fetcher")
-            if storage is None or api_client is None:
-                return
-
-            closed = await storage.resolve_pending_trades(api_client, data_fetcher)
-            for trade in closed:
-                chat_id = trade.get("chat_id")
-                if not chat_id:
-                    continue
-                result = trade.get("result", "UNKNOWN")
-                icon = {"WIN": "✅", "LOSS": "❌"}.get(result, "❔")
-                text = (
-                    f"{icon} <b>{result}</b>  —  {trade.get('direction')} "
-                    f"<b>{trade.get('asset')}</b>  (${trade.get('amount', 0):.2f})"
-                )
-                try:
-                    await self.application.bot.send_message(
-                        chat_id=int(chat_id), text=text, parse_mode="HTML"
-                    )
-                except Exception:
-                    logger.exception("Failed to notify chat %s of trade result", chat_id)
-        except Exception:
-            logger.exception("resolve_pending_trades job failed")
 
     def _register_handlers(self) -> None:
         assert self.application is not None
