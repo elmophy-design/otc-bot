@@ -1,156 +1,29 @@
-const DASHBOARD_API_URL =
-  process.env.NEXT_PUBLIC_DASHBOARD_API_URL || "http://127.0.0.1:8000";
-const DASHBOARD_API_KEY = process.env.NEXT_PUBLIC_DASHBOARD_API_KEY || "";
+const API_BASE = "/api/dashboard";
 
-async function dashboardRequest(path: string, init: RequestInit = {}) {
-  const response = await fetch(`${DASHBOARD_API_URL}${path}`, {
-    ...init,
-    headers: {
-      "Content-Type": "application/json",
-      "X-Dashboard-Key": DASHBOARD_API_KEY,
-      ...(init.headers || {}),
-    },
-    cache: "no-store",
-  });
+async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const response = await fetch(`${API_BASE}${path}`, { ...init, cache: "no-store", headers: { "Content-Type": "application/json", ...(init.headers || {}) } });
   const body = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(body.detail || `Dashboard API error (${response.status})`);
-  return body;
+  return body as T;
 }
 
-export type DashboardUser = {
-  id: number;
-  telegram_id: string;
-  username?: string | null;
-  first_name?: string | null;
-  last_name?: string | null;
-  created_at?: string | null;
-  last_active?: string | null;
-};
+export type ScannerRow = { asset:string; market?:string; bias?:string; strength?:number|null; rsi?:number|null; macd?:number|null; trend?:string; volatility?:number|null; readiness?:string; price?:number|null; timestamp?:string|null; [key:string]:unknown };
+export type Trade = { id:number; asset:string; direction:string; amount:number; result:string; profit_loss:number|null; payout:number|null; placed_at:string|null; expiry_at:string|null; closed_at:string|null; order_id?:string|null; settlement_source?:string|null; broker_result?:string|null; settlement_attempts?:number };
+export type Report = { total:number; settled:number; wins:number; losses:number; draws:number; pending:number; unresolved:number; win_rate:number; stake:number; settled_stake:number; payout:number; net_pl:number; call:{total:number;wins:number;losses:number;draws:number;win_rate:number}; put:{total:number;wins:number;losses:number;draws:number;win_rate:number}; by_asset:Record<string,unknown>; trades:Trade[] };
+export type Overview = { mode:string; broker_connected:boolean; assets_tracked:number; users:{count:number}; daily:Report; weekly:Report; monthly:Report; recent_trades:Trade[]; updated_at:string };
 
-export async function getUsers(limit = 100): Promise<DashboardUser[]> {
-  const body = await dashboardRequest(`/api/admin/users?limit=${limit}`);
-  return body.users;
-}
+export async function getOverview(){ return request<Overview>("/dashboard/overview"); }
+export async function getAnalytics(period:"daily"|"weekly"|"monthly"){ return request<{period:string;report:Report;updated_at:string}>(`/analytics?period=${period}`); }
+export async function getMarketStatus(){ return request<any>("/market/status"); }
+export async function getMarketScanner(timeframe="1m"){ return request<any>(`/market/scanner?timeframe=${encodeURIComponent(timeframe)}`); }
+export async function getMarketAsset(asset:string,timeframe="1m"){ return request<any>(`/market/assets/${encodeURIComponent(asset)}?timeframe=${encodeURIComponent(timeframe)}`); }
+export type Candle = { time:string|null; open:number; high:number; low:number; close:number; volume:number|null };
+export async function getMarketCandles(asset:string,timeframe="1m",count=120){ return request<{status:string;asset:string;timeframe:string;count:number;candles:Candle[];updated_at:string}>(`/market/candles?asset=${encodeURIComponent(asset)}&timeframe=${encodeURIComponent(timeframe)}&count=${count}`); }
+export async function getSignal(asset:string,timeframe="1m"){ return request<any>(`/market/signal?asset=${encodeURIComponent(asset)}&timeframe=${encodeURIComponent(timeframe)}`,{method:"POST"}); }
+export async function previewTrade(payload:{asset:string;timeframe:string;amount:number;duration:number}){ return request<any>("/market/trade/preview",{method:"POST",body:JSON.stringify(payload)}); }
+export async function executeTrade(payload:{asset:string;timeframe:string;amount:number;duration:number;confirm:boolean}){ return request<any>("/market/trade/execute",{method:"POST",body:JSON.stringify(payload)}); }
+export async function getUsers(limit=500){ return request<any>(`/admin/users?limit=${limit}`); }
+export async function getHealth(){ return request<any>("/health"); }
 
-export async function createUser(input: {
-  telegram_id: number;
-  username?: string;
-  first_name?: string;
-  last_name?: string;
-}): Promise<DashboardUser> {
-  const body = await dashboardRequest("/api/admin/users", {
-    method: "POST",
-    body: JSON.stringify(input),
-  });
-  return body.user;
-}
-
-export async function updateUser(
-  telegramId: string,
-  input: { username?: string; first_name?: string; last_name?: string }
-): Promise<DashboardUser> {
-  const body = await dashboardRequest(`/api/admin/users/${telegramId}`, {
-    method: "PATCH",
-    body: JSON.stringify(input),
-  });
-  return body.user;
-}
-
-export async function deleteUser(telegramId: string) {
-  return dashboardRequest(`/api/admin/users/${telegramId}`, { method: "DELETE" });
-}
-
-export type ScannerRow = {
-  asset: string;
-  market?: string;
-  bias?: string;
-  strength?: number | null;
-  rsi?: number | null;
-  macd?: number | null;
-  trend?: string;
-  volatility?: number | null;
-  readiness?: string;
-  price?: number | null;
-  timestamp?: string | null;
-  [key: string]: unknown;
-};
-
-export type ScannerResponse = {
-  timeframe: string;
-  status?: string;
-  assets?: ScannerRow[];
-  scanner?: ScannerRow[];
-  rows?: ScannerRow[];
-  last_update?: string | null;
-  [key: string]: unknown;
-};
-
-export type MarketStatus = {
-  status?: string;
-  connected?: boolean;
-  market_feed?: string;
-  assets_tracked?: number;
-  last_update?: string | null;
-  [key: string]: unknown;
-};
-
-export async function getMarketStatus(): Promise<MarketStatus> {
-  return dashboardRequest("/api/market/status");
-}
-
-export async function getMarketScanner(timeframe = "1m"): Promise<ScannerResponse> {
-  return dashboardRequest(`/api/market/scanner?timeframe=${encodeURIComponent(timeframe)}`);
-}
-
-export async function getMarketAsset(asset: string, timeframe = "1m") {
-  return dashboardRequest(
-    `/api/market/assets/${encodeURIComponent(asset)}?timeframe=${encodeURIComponent(timeframe)}`
-  );
-}
-export type MarketSignal = {
-  status: string;
-  asset: string;
-  timeframe: string;
-  signal: {
-    action: "CALL" | "PUT" | "NO_SIGNAL" | string;
-    confidence?: number | null;
-    reason?: string | null;
-    entry_price?: number | null;
-    timestamp?: string | null;
-    indicator_snapshot?: Record<string, unknown>;
-    votes?: Record<string, number>;
-    confluence_score?: number | null;
-    htf?: Record<string, unknown> | null;
-    [key: string]: unknown;
-  };
-  generated_at?: string | null;
-}
-
-export async function generateMarketSignal(asset: string, timeframe = "1m"): Promise<MarketSignal> {
-  return dashboardRequest(
-    `/api/market/signal?asset=${encodeURIComponent(asset)}&timeframe=${encodeURIComponent(timeframe)}`,
-    { method: "POST" }
-  );
-}
-
-
-
-export type TradePreview = {
-  allowed: boolean; reasons: string[]; asset: string; timeframe: string;
-  signal: MarketSignal["signal"]; amount: number; duration: number; balance?: number | null;
-  min_amount?: number; max_amount?: number; demo_mode?: boolean;
-};
-
-export type TradeExecution = {
-  status: string; trade_id: string; trade_history_id: number; operator_id: number;
-  asset: string; direction: string; amount: number; duration: number; entry_price?: number | null;
-  signal_confidence?: number | null; signal_timestamp?: string | null; demo_mode?: boolean;
-};
-
-export async function previewTrade(input: { asset: string; timeframe: string; amount: number; duration: number }): Promise<TradePreview> {
-  return dashboardRequest("/api/market/trade/preview", { method: "POST", body: JSON.stringify(input) });
-}
-
-export async function executeTrade(input: { asset: string; timeframe: string; amount: number; duration: number; confirm: boolean }): Promise<TradeExecution> {
-  return dashboardRequest("/api/market/trade/execute", { method: "POST", body: JSON.stringify(input) });
-}
+export async function getSignalHistory(limit=25){ return request<any>(`/market/signal/history?limit=${limit}`); }
+export async function getPendingTrades(){ return request<any>("/market/pending"); }

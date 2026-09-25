@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import signal
 import sys
 from typing import Optional
@@ -59,6 +60,7 @@ class OTCTradingBot:
         self.data_fetcher: Optional[MarketDataFetcher] = None
         self.signal_engine: Optional[SignalEngine] = None
         self._settlement_task: Optional[asyncio.Task] = None
+        self._dashboard_task: Optional[asyncio.Task] = None
 
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
@@ -113,6 +115,21 @@ class OTCTradingBot:
             self.application.bot_data["storage"] = DataStorage()
             self.application.bot_data["admin_service"] = AdminService(self.settings)
             self.application.bot_data["broadcast_service"] = BroadcastService(self.settings)
+
+            # Bind the dashboard API to this exact runtime. This prevents a
+            # second BotV2/native broker session from being created by the
+            # dashboard process.
+            from ..web.api import attach_bot_runtime
+            attach_bot_runtime(bot=self)
+
+            if os.getenv("DASHBOARD_API_ENABLED", "true").lower() == "true":
+                from ..web.server import build_server
+                dashboard_server = build_server()
+                self._dashboard_task = asyncio.create_task(
+                    dashboard_server.serve(),
+                    name="otc_dashboard_api",
+                )
+                logger.info("✅ Dashboard API started on port %s", dashboard_server.config.port)
 
             self._register_handlers()
 
@@ -364,6 +381,14 @@ class OTCTradingBot:
                 except asyncio.CancelledError:
                     pass
                 self._settlement_task = None
+
+            if self._dashboard_task is not None:
+                self._dashboard_task.cancel()
+                try:
+                    await self._dashboard_task
+                except asyncio.CancelledError:
+                    pass
+                self._dashboard_task = None
 
             if self.application:
                 if self.application.updater and self.application.updater.running:
