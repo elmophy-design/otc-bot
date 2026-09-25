@@ -1,0 +1,85 @@
+    def create_user(
+        self, telegram_id: int | str, username: Optional[str] = None,
+        first_name: Optional[str] = None, last_name: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        telegram_id = str(telegram_id).strip()
+        if not telegram_id.isdigit() or int(telegram_id) <= 0:
+            raise ValueError("telegram_id must be a positive numeric Telegram ID")
+        session = self.db.get_session()
+        try:
+            existing = session.query(User).filter_by(telegram_id=telegram_id).first()
+            if existing is not None:
+                raise ValueError("A user with this Telegram ID already exists")
+            user = User(
+                telegram_id=telegram_id,
+                username=(username or "").strip().lstrip("@") or None,
+                first_name=(first_name or "").strip() or None,
+                last_name=(last_name or "").strip() or None,
+            )
+            session.add(user)
+            session.commit()
+            session.refresh(user)
+            return self._user_to_dict(user)
+        except Exception:
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
+    def get_user(self, telegram_id: int | str) -> Optional[Dict[str, Any]]:
+        session = self.db.get_session()
+        try:
+            user = session.query(User).filter_by(telegram_id=str(telegram_id).strip()).first()
+            return self._user_to_dict(user) if user else None
+        finally:
+            session.close()
+
+    def update_user(
+        self, telegram_id: int | str, username: Optional[str] = None,
+        first_name: Optional[str] = None, last_name: Optional[str] = None,
+    ) -> Optional[Dict[str, Any]]:
+        session = self.db.get_session()
+        try:
+            user = session.query(User).filter_by(telegram_id=str(telegram_id).strip()).first()
+            if user is None:
+                return None
+            if username is not None:
+                user.username = username.strip().lstrip("@") or None
+            if first_name is not None:
+                user.first_name = first_name.strip() or None
+            if last_name is not None:
+                user.last_name = last_name.strip() or None
+            session.commit()
+            session.refresh(user)
+            return self._user_to_dict(user)
+        finally:
+            session.close()
+
+    def delete_user(self, telegram_id: int | str) -> bool:
+        session = self.db.get_session()
+        try:
+            user = session.query(User).filter_by(telegram_id=str(telegram_id).strip()).first()
+            if user is None:
+                return False
+            session.query(SignalHistory).filter_by(user_id=user.id).delete(synchronize_session=False)
+            session.query(TradeHistory).filter_by(user_id=user.id).delete(synchronize_session=False)
+            session.delete(user)
+            session.commit()
+            return True
+        except Exception:
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
+    @staticmethod
+    def _user_to_dict(user: User) -> Dict[str, Any]:
+        return {
+            "id": user.id,
+            "telegram_id": user.telegram_id,
+            "username": user.username,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "created_at": user.created_at.isoformat() if user.created_at else None,
+            "last_active": user.last_active.isoformat() if user.last_active else None,
+        }

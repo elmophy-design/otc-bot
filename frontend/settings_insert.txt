@@ -1,0 +1,5 @@
+        # Admin dashboard HTTP API
+        self.DASHBOARD_ADMIN_KEY = os.getenv('DASHBOARD_ADMIN_KEY')
+        self.DASHBOARD_CORS_ORIGINS = os.getenv(
+            'DASHBOARD_CORS_ORIGINS', 'http://localhost:3000'
+        )
