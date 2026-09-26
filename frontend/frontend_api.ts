@@ -27,3 +27,20 @@ export async function getHealth(){ return request<any>("/health"); }
 
 export async function getSignalHistory(limit=25){ return request<any>(`/market/signal/history?limit=${limit}`); }
 export async function getPendingTrades(){ return request<any>("/market/pending"); }
+
+// PHASE 7 — Professional Decision & Execution Layer
+export async function getPhase7Decision(asset:string,timeframe="1m"){
+  return request<any>(`/phase7/decision/${encodeURIComponent(asset)}?timeframe=${encodeURIComponent(timeframe)}`);
+}
+export async function getPhase7Opportunities(timeframe="1m",limit=10){
+  return request<any>(`/phase7/opportunities?timeframe=${encodeURIComponent(timeframe)}&limit=${limit}`);
+}
+export async function getPhase7TradePreview(payload:{asset:string;timeframe:string;amount:number;duration:number}){
+  return request<any>("/phase7/trade-preview",{method:"POST",body:JSON.stringify(payload)});
+}
+export async function getPhase7Compare(assets:string[],timeframe="1m"){
+  return request<any>(`/phase7/compare?assets=${encodeURIComponent(assets.join(","))}&timeframe=${encodeURIComponent(timeframe)}`);
+}
+export async function getPhase7Journal(period:"daily"|"weekly"|"monthly"="daily",limit=100){
+  return request<any>(`/phase7/journal?period=${period}&limit=${limit}`);
+}
